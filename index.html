@@ -56,8 +56,6 @@ body.dark .profile-desc{color:#aaa}
   .profile-desc{font-size:11px}
 }.members{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.member{border:1px solid var(--line);background:#fff;border-radius:25px;padding:24px;min-height:175px;position:relative;overflow:hidden;cursor:pointer;transition:.25s}.member:hover{transform:translateY(-5px);box-shadow:0 15px 35px #0000000b}.member:after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;right:-45px;bottom:-55px;background:linear-gradient(135deg,#ffd6e7,#e6ddff);opacity:.7}.num{font-size:12px;color:var(--accent);font-weight:900}.member h3{font-size:24px;margin:9px 0 4px}.member p{color:#999;margin:0;font-size:13px}.member .go{position:absolute;right:20px;top:20px;font-size:20px}
 .archive{background:#fff}.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin:25px 0}.pill{border:1px solid var(--line);background:#fff;padding:9px 15px;border-radius:99px;font-size:13px;font-weight:750}.pill.active,.pill:hover{background:#111;color:#fff;border-color:#111}
-
-.shared-archive-head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;margin:42px 0 18px}.shared-archive-head h3{margin:4px 0;font-size:25px;letter-spacing:-1px}.shared-archive-head p{margin:0;color:#999;font-size:12px}.archive-divider{border:0;border-top:1px solid var(--line);margin:50px 0 35px}.shared-posts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.shared-post{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 10px 30px #00000008}.shared-media{aspect-ratio:1/1;background:#eee;position:relative;overflow:hidden}.shared-media img,.shared-media video{width:100%;height:100%;display:block;object-fit:cover}.shared-body{padding:15px}.shared-meta{display:flex;justify-content:space-between;gap:8px;align-items:center;font-size:11px;color:#999}.shared-author{font-weight:900;color:var(--accent)}.shared-title{margin:7px 0 4px;font-size:17px}.shared-desc{margin:0;color:#888;font-size:13px;line-height:1.55;white-space:pre-wrap;word-break:break-word}.shared-actions{display:flex;align-items:center;gap:10px;margin-top:14px}.shared-like{border:0;background:none;padding:7px 0;color:#777;font-size:13px}.shared-like.liked{color:#ff3e82;font-weight:900}.shared-comments{margin-top:13px;padding-top:13px;border-top:1px solid var(--line)}.shared-comments-title{font-size:11px;font-weight:900;margin-bottom:8px}.shared-comment-list{display:flex;flex-direction:column;gap:7px;max-height:180px;overflow:auto}.shared-comment{font-size:12px;line-height:1.45}.shared-comment b{font-size:11px}.shared-comment small{color:#aaa;margin-left:5px}.shared-comment-form{display:grid;grid-template-columns:90px 1fr auto;gap:6px;margin-top:9px}.shared-comment-form input{min-width:0;border:1px solid var(--line);background:var(--bg);border-radius:9px;padding:8px;font-size:11px;outline:none}.shared-comment-form button{border:0;border-radius:9px;background:#111;color:#fff;padding:0 10px;font-size:11px;font-weight:800}.shared-comment-empty{font-size:11px;color:#aaa;padding:5px 0}.shared-error{grid-column:1/-1}.shared-loading{grid-column:1/-1}
 .posts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.post{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:.2s}.post:hover{transform:translateY(-3px);box-shadow:0 15px 35px #0000000a}.media{aspect-ratio:1/1;background:#eee;position:relative;overflow:hidden}.media img,.media video{width:100%;height:100%;object-fit:cover;display:block}.video-mark{position:absolute;left:12px;top:12px;background:#111c;color:#fff;padding:7px 9px;border-radius:99px;font-size:11px;font-weight:800}.postbody{padding:15px}.meta{display:flex;justify-content:space-between;gap:8px;align-items:center}.membertag{font-size:11px;font-weight:900;color:var(--accent)}.postbody h3{margin:7px 0 5px;font-size:17px}.postbody p{margin:0;color:#888;font-size:13px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.actions{display:flex;justify-content:space-between;align-items:center;margin-top:14px}.like{border:0;background:none;padding:0;font-size:13px;color:#777}.like.liked{color:#ff3e82}.delete{border:0;background:none;color:#aaa;font-size:12px}
 .empty{text-align:center;padding:70px 20px;border:1px dashed #dcdce3;border-radius:22px;color:#999}.empty strong{display:block;color:#444;margin-bottom:7px}
 /* Instagram */
@@ -68,7 +66,6 @@ footer{text-align:center;padding:50px 20px;color:#999;font-size:12px}footer b{co
 .modal{position:fixed;inset:0;background:#000b;z-index:50;display:none;align-items:center;justify-content:center;padding:18px}.modal.show{display:flex}.modalbox{background:#fff;border-radius:22px;max-width:900px;width:100%;max-height:94vh;overflow:auto;position:relative}.modalclose{position:absolute;right:15px;top:12px;border:0;background:#111;color:#fff;width:38px;height:38px;border-radius:50%;font-size:20px;z-index:2}.modalmedia{background:#111;max-height:70vh;display:flex;justify-content:center}.modalmedia img,.modalmedia video{max-width:100%;max-height:70vh;object-fit:contain}.modalcontent{padding:22px}.modalcontent h2{margin:5px 0}.modalcontent p{color:#777;line-height:1.7;white-space:pre-wrap}
 .toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%) translateY(20px);background:#111;color:#fff;padding:12px 17px;border-radius:99px;font-size:13px;opacity:0;pointer-events:none;transition:.25s;z-index:100}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 @media(max-width:850px){.members{grid-template-columns:repeat(2,1fr)}.posts{grid-template-columns:repeat(2,1fr)}.feature-gallery{grid-template-rows:220px 220px}.ig-head{align-items:flex-start;flex-direction:column}}
-@media(max-width:700px){.shared-posts{grid-template-columns:1fr}.shared-archive-head{align-items:flex-start;flex-direction:column}.shared-comment-form{grid-template-columns:1fr 1fr}.shared-comment-form button{min-height:36px}}
 @media(max-width:600px){.nav{height:60px;padding:0 15px}.navlinks{display:none}.hero{min-height:560px;padding:70px 18px}.hero h1{letter-spacing:-4px}.feature-wrap{padding:0 15px 50px;margin-top:-20px}.feature-gallery{grid-template-columns:1fr 1fr;grid-template-rows:220px 220px;gap:8px}.feature-card:first-child{grid-column:auto;grid-row:auto}.feature-card{border-radius:18px}.section{padding:60px 15px}.members{grid-template-columns:1fr 1fr;gap:9px}.member{min-height:145px;padding:17px;border-radius:18px}.member h3{font-size:19px}.posts{grid-template-columns:1fr 1fr;gap:8px}.post{border-radius:14px}.postbody{padding:11px}.postbody h3{font-size:14px}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.loginrow{flex-direction:column}.ig-grid{grid-template-columns:1fr 1fr;gap:8px}.ig-card{border-radius:14px}.adminbox{padding:24px;border-radius:22px}}
 
 /* ===== PREMIUM UX UPDATE ===== */
@@ -593,13 +590,14 @@ body.dark .guestbook-placeholder a{color:#fff}
 <section class="instagram" id="instagram"><div class="section"><div class="ig-head"><div><span class="eyebrow">INSTAGRAM</span><h2>BBANGSHION ON INSTAGRAM</h2><p class="sub">홈페이지에서 확인하고, 누르면 원본 인스타그램 게시물로 이동합니다.</p></div><a class="ig-profile" href="https://www.instagram.com/bbangshion/" target="_blank" rel="noopener"><span class="ig-icon">◎</span>@bbangshion 바로가기 ↗</a></div>
 <div class="ig-grid" id="igGrid"></div><p class="ig-add-note">※ 카드를 누르면 BBANGSHION Instagram의 해당 원본 게시물로 이동합니다.</p></div></section>
 
+<!-- WAV ARCHIVE START -->
 <section id="wav-archive" class="wav-archive-section">
   <div class="section-inner">
     <div class="archive-kicker">WAV ARCHIVE</div>
     <h2>WAV가 올리는 tripleS의 순간들</h2>
     <p class="archive-lead">사진과 영상을 자유롭게 기록하고, 함께 간직하는 공간</p>
 
-    <div class="wav-upload-panel" id="upload">
+    <div class="wav-upload-panel">
       <div class="upload-heading">
         <div>
           <span class="upload-label">SHARE A MOMENT</span>
@@ -617,7 +615,7 @@ body.dark .guestbook-placeholder a{color:#fff}
         <label class="upload-field">
           <span>멤버</span>
           <select id="wavMember">
-            <option value="ALL">멤버 선택 (선택사항)</option>
+            <option value="">멤버 선택 (선택사항)</option>
             <option>S12 곽연지</option>
             <option>S19 정하연</option>
             <option>S20 박시온</option>
@@ -628,7 +626,7 @@ body.dark .guestbook-placeholder a{color:#fff}
 
         <label class="upload-field full">
           <span>한마디</span>
-          <input id="wavCaption" type="text" maxlength="300" placeholder="이 순간을 설명해주세요">
+          <input id="wavCaption" type="text" maxlength="100" placeholder="이 순간을 설명해주세요">
         </label>
 
         <label class="upload-file" for="wavFileInput">
@@ -644,52 +642,24 @@ body.dark .guestbook-placeholder a{color:#fff}
       <button id="wavUploadButton" type="button" class="wav-upload-button">
         <span>WAV의 기록 남기기</span><span>↗</span>
       </button>
+
       <div id="wavUploadStatus" class="wav-upload-status" aria-live="polite"></div>
     </div>
 
     <div class="archive-toolbar">
       <div>
-        <span class="upload-label">SHARED MOMENTS</span>
-        <h3>올린 사진 · 공유된 사진</h3>
+        <span class="upload-label">LATEST MOMENTS</span>
+        <h3>최근 기록</h3>
       </div>
-      <button id="sharedRefresh" type="button" class="wav-refresh-button">새로고침 ↻</button>
+      <button id="wavRefreshButton" type="button" class="wav-refresh-button">새로고침 ↻</button>
     </div>
-    <div id="sharedPosts" class="shared-posts">
-      <div class="empty shared-loading"><strong>공유 게시물을 불러오는 중...</strong></div>
-    </div>
-  </div>
-</section>
 
-
-<section class="guestbook" id="guestbook">
-  <div class="section">
-    <span class="eyebrow">GUESTBOOK</span>
-    <h2>FAN MESSAGE BOOK</h2>
-    <p class="sub">WAV의 응원 메시지를 남겨보세요. GitHub 저장소에 연결하면 댓글이 공개됩니다.</p>
-    <div class="guestbook-box">
-      <div class="guestbook-placeholder">
-        <span>💬</span>
-        <div><b>응원 메시지 남기기</b><p>Utterances 또는 Giscus를 연결할 수 있는 자리입니다.</p></div>
-        <a href="https://github.com/apps/utterances" target="_blank" rel="noopener">Utterances 연결 ↗</a>
-      </div>
+    <div id="wavGallery" class="wav-gallery">
+      <div class="wav-empty">기록을 불러오는 중...</div>
     </div>
   </div>
 </section>
-</main>
-<footer>© 2026 <b>BBANGSHION</b> · TRIPLES FAN VIDEO ARCHIVE · <a href="https://www.instagram.com/bbangshion/" target="_blank" rel="noopener" style="color:inherit">Instagram ↗</a>
-<section class="bbangshion-instagram">
-  <div class="section">
-    <span class="eyebrow">WAV ARCHIVE · INSTAGRAM</span>
-    <h2>WAV의 기록을 더 가까이</h2>
-    <p class="sub">사진과 릴스, 그리고 tripleS의 순간을 함께 기록하는<br>bbangshion Instagram으로 이동합니다.</p>
-    <a class="btn pink instagram-btn" href="https://www.instagram.com/bbangshion/" target="_blank" rel="noopener noreferrer">
-      Instagram · @bbangshion ↗
-    </a>
-  </div>
-</section>
-
-
-
+<!-- WAV ARCHIVE END -->
 
 </footer>
 <div id="modal" class="modal"><div class="modalbox"><button class="modalclose" id="modalClose">×</button><div id="modalMedia" class="modalmedia"></div><div class="modalcontent"><span id="modalMember" class="membertag"></span><h2 id="modalTitle"></h2><p id="modalDesc"></p><div class="lightbox-actions"><a id="downloadBtn" class="lb-btn" href="#" target="_blank" rel="noopener">저장</a></div></div></div></div><div id="toast" class="toast"></div>
@@ -839,204 +809,80 @@ function applyTheme(mode){
 applyTheme(localStorage.getItem("bbangshion_theme")||"light");
 themeToggle.onclick=()=>applyTheme(document.body.classList.contains("dark")?"light":"dark");
 
-/* PUBLIC WAV COMMUNITY: Supabase DB + Storage + likes + comments */
+/* PUBLIC WAV ARCHIVE */
 const SHARED_BACKEND = {
+  provider: "supabase",
   url: "https://hblaxmgqsdpzjdxvtuya.supabase.co",
-  anonKey: "sb_publishable_N6hpTWY9ESou4b6Clqenhg_xrX6n4bm",
-  bucket: "Media"
+  anonKey: "sb_publishable_N6hpTWY9ESou4b6Clqenhg_xrX6n4bm"
 };
-const sharedClient = window.supabase.createClient(SHARED_BACKEND.url, SHARED_BACKEND.anonKey);
 
-let sharedMoments = [];
-let sharedLikeIds = new Set();
-const VISITOR_KEY = "bbangshion_visitor_id_v1";
-function getVisitorId(){
-  let id = localStorage.getItem(VISITOR_KEY);
-  if(!id){
-    id = (crypto.randomUUID ? crypto.randomUUID() : "v_"+Date.now()+"_"+Math.random().toString(36).slice(2));
-    localStorage.setItem(VISITOR_KEY,id);
+async function savePublicMemory(item, file){
+  const ready = SHARED_BACKEND.url.startsWith("https://") && !SHARED_BACKEND.anonKey.startsWith("PASTE_");
+  if(!ready){
+    const local = JSON.parse(localStorage.getItem("bbangshion_public_memories")||"[]");
+    local.unshift(item); localStorage.setItem("bbangshion_public_memories", JSON.stringify(local));
+    return {local:true};
   }
-  return id;
-}
-const visitorId = getVisitorId();
-
-function sharedMediaUrl(path){
-  if(!path) return "";
-  return path.startsWith("http") ? path : `${SHARED_BACKEND.url}/storage/v1/object/public/${SHARED_BACKEND.bucket}/${path}`;
-}
-function sharedType(moment){
-  return (moment.type || "photo").toLowerCase().startsWith("video") ? "video" : "photo";
-}
-function formatSharedDate(v){
-  try{return new Date(v).toLocaleString("ko-KR",{year:"numeric",month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit"});}catch{return "";}
-}
-function sharedEscape(s){return esc(s);}
-
-async function loadSharedPosts(){
-  const wrap=document.getElementById("sharedPosts");
-  if(!wrap) return;
-  wrap.innerHTML='<div class="empty shared-loading"><strong>공유 게시물을 불러오는 중...</strong></div>';
-  try{
-    const {data,error}=await sharedClient.from("moments").select("*").order("created_at",{ascending:false}).limit(100);
-    if(error) throw error;
-    sharedMoments=data||[];
-    const ids=sharedMoments.map(x=>x.id);
-    sharedLikeIds=new Set();
-    if(ids.length){
-      const {data:likes,error:likeError}=await sharedClient.from("moment_likes").select("moment_id").eq("visitor_id",visitorId).in("moment_id",ids);
-      if(likeError) throw likeError;
-      (likes||[]).forEach(x=>sharedLikeIds.add(x.moment_id));
-    }
-    await renderSharedPosts();
-  }catch(e){
-    console.error(e);
-    wrap.innerHTML='<div class="empty shared-error"><strong>공유 게시물을 불러오지 못했습니다.</strong><span>Supabase SQL/RLS 설정을 확인해주세요.</span></div>';
-  }
-}
-
-async function renderSharedPosts(){
-  const wrap=document.getElementById("sharedPosts");
-  if(!wrap) return;
-  if(!sharedMoments.length){wrap.innerHTML='<div class="empty shared-error"><strong>아직 공유 게시물이 없습니다.</strong><span>첫 번째 WAV 기록을 남겨보세요.</span></div>';return;}
-  wrap.innerHTML="";
-  const ids=sharedMoments.map(x=>x.id);
-  const likeCounts={};
-  if(ids.length){
-    const {data:likes}=await sharedClient.from("moment_likes").select("moment_id").in("moment_id",ids);
-    (likes||[]).forEach(x=>likeCounts[x.moment_id]=(likeCounts[x.moment_id]||0)+1);
-  }
-  for(const moment of sharedMoments){
-    const card=document.createElement("article");card.className="shared-post";card.dataset.id=moment.id;
-    const media=document.createElement("div");media.className="shared-media";
-    const url=sharedMediaUrl(moment.media_url||moment.media_path);
-    if(url){
-      if(sharedType(moment)==="video"){
-        const v=document.createElement("video");v.src=url;v.controls=true;v.playsInline=true;v.preload="metadata";media.appendChild(v);
-      }else{const img=document.createElement("img");img.src=url;img.loading="lazy";img.alt=moment.title||"WAV 기록";media.appendChild(img);}
-    }else if(moment.url){
-      media.innerHTML='<div class="reel-placeholder"><div class="reel-icon">◎</div><strong>INSTAGRAM</strong><span>REEL / POST ↗</span></div>';
-      media.style.cursor="pointer";media.addEventListener("click",()=>window.open(moment.url,"_blank","noopener"));
-    }else{
-      media.innerHTML='<div class="reel-placeholder"><strong>WAV</strong><span>MEDIA 없음</span></div>';
-    }
-    const body=document.createElement("div");body.className="shared-body";
-    body.innerHTML=`
-      <div class="shared-meta"><span class="shared-author">${sharedEscape(moment.author||"익명의 WAV")}</span><span>${sharedEscape(moment.member||"ALL")}</span></div>
-      <h3 class="shared-title">${sharedEscape(moment.title||"tripleS의 한 순간")}</h3>
-      <p class="shared-desc">${sharedEscape(moment.description||"")}</p>
-      <div class="shared-meta" style="margin-top:10px"><span>${formatSharedDate(moment.created_at)}</span><span>${sharedEscape(moment.year||"")}</span></div>
-      <div class="shared-actions"><button class="shared-like ${sharedLikeIds.has(moment.id)?"liked":""}" type="button">${sharedLikeIds.has(moment.id)?"♥":"♡"} 좋아요 <span>${likeCounts[moment.id]||0}</span></button></div>
-      <div class="shared-comments">
-        <div class="shared-comments-title">💬 댓글</div>
-        <div class="shared-comment-list"><div class="shared-comment-empty">댓글을 불러오는 중...</div></div>
-        <form class="shared-comment-form"><input name="nickname" maxlength="30" placeholder="닉네임"><input name="body" maxlength="300" placeholder="댓글을 남겨주세요"><button type="submit">등록</button></form>
-      </div>`;
-    card.append(media,body);wrap.appendChild(card);
-
-    body.querySelector(".shared-like").addEventListener("click",()=>toggleSharedLike(moment.id,body.querySelector(".shared-like")));
-    body.querySelector(".shared-comment-form").addEventListener("submit",e=>submitSharedComment(e,moment.id,card));
-    loadSharedComments(moment.id,body.querySelector(".shared-comment-list"));
-  }
-}
-
-async function toggleSharedLike(momentId,button){
-  if(sharedLikeIds.has(momentId)){toast("이미 좋아요를 눌렀어요.");return;}
-  button.disabled=true;
-  try{
-    const {error}=await sharedClient.from("moment_likes").insert({moment_id:momentId,visitor_id:visitorId});
-    if(error && error.code!=="23505") throw error;
-    sharedLikeIds.add(momentId);
-    await loadSharedPosts();
-  }catch(e){console.error(e);toast("좋아요를 처리하지 못했어요.");button.disabled=false;}
-}
-
-async function loadSharedComments(momentId,list){
-  try{
-    const {data,error}=await sharedClient.from("moment_comments").select("id,nickname,body,created_at").eq("moment_id",momentId).order("created_at",{ascending:true}).limit(100);
-    if(error) throw error;
-    if(!data?.length){list.innerHTML='<div class="shared-comment-empty">아직 댓글이 없습니다.</div>';return;}
-    list.innerHTML=data.map(c=>`<div class="shared-comment"><b>${sharedEscape(c.nickname||"익명")}</b><small>${formatSharedDate(c.created_at)}</small><div>${sharedEscape(c.body)}</div></div>`).join("");
-  }catch(e){console.error(e);list.innerHTML='<div class="shared-comment-empty">댓글을 불러오지 못했습니다.</div>';}
-}
-
-async function submitSharedComment(event,momentId,card){
-  event.preventDefault();
-  const form=event.currentTarget,nickname=form.nickname.value.trim()||"익명 WAV",body=form.body.value.trim();
-  if(!body){toast("댓글 내용을 입력해주세요.");return;}
-  const submit=form.querySelector("button");submit.disabled=true;
-  try{
-    const {error}=await sharedClient.from("moment_comments").insert({moment_id:momentId,nickname,body,visitor_id:visitorId});
-    if(error) throw error;
-    form.reset();
-    await loadSharedComments(momentId,card.querySelector(".shared-comment-list"));
-    toast("댓글을 남겼어요.");
-  }catch(e){console.error(e);toast("댓글을 저장하지 못했어요. DB/RLS 설정을 확인해주세요.");}
-  finally{submit.disabled=false;}
-}
-
-async function savePublicMemory(item,file){
-  if(!sharedClient) throw new Error("Supabase 연결이 준비되지 않았습니다.");
-  let mediaPath="",mediaUrl=item.media_url||"";
   if(file){
-    if(file.size>50*1024*1024) throw new Error("사진/영상은 50MB 이하로 올려주세요.");
-    const ext=(file.name.split(".").pop()||"bin").toLowerCase();
-    const safeBase=file.name.replace(/\.[^.]+$/,"" ).replace(/[^a-zA-Z0-9가-힣_-]/g,"_").slice(0,70);
-    mediaPath=`wav/${Date.now()}_${crypto.randomUUID().slice(0,8)}_${safeBase}.${ext}`;
-    const {error:uploadError}=await sharedClient.storage.from(SHARED_BACKEND.bucket).upload(mediaPath,file,{cacheControl:"3600",upsert:false,contentType:file.type||"application/octet-stream"});
-    if(uploadError) throw uploadError;
-    mediaUrl=sharedClient.storage.from(SHARED_BACKEND.bucket).getPublicUrl(mediaPath).data.publicUrl;
+    const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g,"_");
+    const path = `wav/${Date.now()}-${safeName}`;
+    const upload = await fetch(`${SHARED_BACKEND.url}/storage/v1/object/Media/${path}`, {
+      method:"POST",
+      headers:{
+        "apikey":SHARED_BACKEND.anonKey,
+        "Authorization":"Bearer "+SHARED_BACKEND.anonKey,
+        "Content-Type":file.type || "application/octet-stream",
+        "x-upsert":"false"
+      },
+      body:file
+    });
+    if(!upload.ok) throw new Error("사진/영상 업로드에 실패했습니다.");
+    item.media_url = `${SHARED_BACKEND.url}/storage/v1/object/public/Media/${path}`;
+    item.media_type = file.type.startsWith("video/") ? "video" : "photo";
   }
-  const {data,error}=await sharedClient.from("moments").insert({
-    author:item.author,year:Number(item.year)||new Date().getFullYear(),member:item.member||"ALL",type:file?(file.type.startsWith("video/")?"video":"photo"):(item.url?"reel":"photo"),title:item.title||"tripleS의 한 순간",description:item.text||"",media_url:mediaUrl||null,media_path:mediaPath||null,media_name:file?.name||null,url:item.url||null
-  }).select().single();
-  if(error) throw error;
-  return data;
+  const res = await fetch(SHARED_BACKEND.url + "/rest/v1/moments", {
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json",
+      "apikey":SHARED_BACKEND.anonKey,
+      "Authorization":"Bearer "+SHARED_BACKEND.anonKey,
+      "Prefer":"return=minimal"
+    },
+    body:JSON.stringify({
+      year:Number(item.year),
+      member:item.member,
+      type:item.media_type || "photo",
+      title:item.title,
+      description:item.text,
+      media_url:item.media_url,
+      created_at:item.created_at
+    })
+  });
+  if(!res.ok) throw new Error("공유 저장에 실패했습니다. Supabase의 anon key와 RLS 정책을 확인해주세요.");
+  return {local:false};
 }
-
-document.getElementById("wavUploadButton")?.addEventListener("click",async()=>{
-  const button=document.getElementById("wavUploadButton");
-  const status=document.getElementById("wavUploadStatus");
-  const file=document.getElementById("wavFileInput")?.files?.[0] || null;
-  const author=document.getElementById("wavUploaderName")?.value.trim() || "익명의 WAV";
-  const member=document.getElementById("wavMember")?.value || "ALL";
-  const caption=document.getElementById("wavCaption")?.value.trim() || "";
-  if(!file){
-    status.textContent="사진 또는 영상을 먼저 선택해주세요.";
-    return;
-  }
-  button.disabled=true;
-  status.textContent="업로드 중…";
+document.getElementById("publicSubmit")?.addEventListener("click", async ()=>{
+  const file = document.getElementById("publicFile").files[0];
+  const item = {
+    author: document.getElementById("publicAuthor").value.trim() || "익명의 WAV",
+    year: document.getElementById("publicYear").value || new Date().getFullYear(),
+    member: document.getElementById("publicMember").value,
+    title: document.getElementById("publicTitle").value.trim() || "tripleS의 한 순간",
+    url: document.getElementById("publicUrl").value.trim(),
+    text: document.getElementById("publicText").value.trim(),
+    media_name: file ? file.name : "",
+    media_url: document.getElementById("publicUrl").value.trim(),
+    created_at: new Date().toISOString()
+  };
   try{
-    await savePublicMemory({
-      author,
-      year:new Date().getFullYear(),
-      member,
-      title:caption || "tripleS의 한 순간",
-      url:"",
-      text:caption
-    },file);
-    status.textContent="업로드 완료 · 다른 사람도 확인할 수 있어요.";
-    document.getElementById("wavUploaderName").value="";
-    document.getElementById("wavMember").value="ALL";
-    document.getElementById("wavCaption").value="";
-    document.getElementById("wavFileInput").value="";
-    document.getElementById("wavFileName").textContent="사진 또는 영상 선택";
-    await loadSharedPosts();
-    document.getElementById("sharedPosts")?.scrollIntoView({behavior:"smooth",block:"start"});
-  }catch(e){
-    console.error(e);
-    status.textContent=e.message||"업로드에 실패했습니다. Supabase DB/Storage 설정을 확인해주세요.";
-  }finally{
-    button.disabled=false;
-  }
+    const result = await savePublicMemory(item, file);
+    toast(result.local ? "이 기기에 기록을 저장했어요. 공유 DB를 연결하면 모든 WAV와 공유됩니다." : "WAV 아카이브에 기록했어요.");
+    document.getElementById("publicTitle").value="";
+    document.getElementById("publicUrl").value="";
+    document.getElementById("publicText").value="";
+    document.getElementById("publicFile").value="";
+  }catch(e){ toast(e.message || "저장하지 못했어요."); }
 });
-document.getElementById("wavFileInput")?.addEventListener("change",()=>{
-  const file=document.getElementById("wavFileInput").files?.[0];
-  document.getElementById("wavFileName").textContent=file?file.name:"사진 또는 영상 선택";
-});
-document.getElementById("sharedRefresh")?.addEventListener("click",loadSharedPosts);
-loadSharedPosts();
-
 </script>
 <!-- 사진은 HTML 내부에 포함되어 있어 images 폴더 없이도 표시됩니다. -->
 
@@ -1062,6 +908,123 @@ document.querySelectorAll('.profile-card').forEach(card => {
 </script>
 
 
+<script>
+(() => {
+  const SUPABASE_URL = "https://hblaxmgqsdpzjdxvtuya.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_N6hpTWY9ESou4b6Clqenhg_xrX6n4bm";
+  if (!window.supabase) return;
+  const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  const fileInput = document.getElementById("wavFileInput");
+  const fileName = document.getElementById("wavFileName");
+  const uploadButton = document.getElementById("wavUploadButton");
+  const status = document.getElementById("wavUploadStatus");
+  const gallery = document.getElementById("wavGallery");
+  const refresh = document.getElementById("wavRefreshButton");
+
+  if (!fileInput || !uploadButton || !gallery) return;
+
+  fileInput.addEventListener("change", () => {
+    const file = fileInput.files?.[0];
+    fileName.textContent = file ? file.name : "사진 또는 영상 선택";
+  });
+
+  const esc = (value) => String(value ?? "").replace(/[&<>"']/g, c => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  }[c]));
+
+  async function loadArchive() {
+    gallery.innerHTML = '<div class="wav-empty">기록을 불러오는 중...</div>';
+    const { data, error } = await client.storage.from("Media").list("wav", {
+      limit: 100,
+      sortBy: { column: "created_at", order: "desc" }
+    });
+
+    if (error) {
+      gallery.innerHTML = '<div class="wav-empty">기록을 불러오지 못했습니다.</div>';
+      return;
+    }
+
+    const files = (data || []).filter(x => x.name && x.name !== ".emptyFolderPlaceholder");
+    if (!files.length) {
+      gallery.innerHTML = '<div class="wav-empty">아직 기록이 없습니다.<br>첫 번째 순간을 남겨보세요.</div>';
+      return;
+    }
+
+    gallery.innerHTML = "";
+    files.forEach(file => {
+      const path = "wav/" + file.name;
+      const { data: publicData } = client.storage.from("Media").getPublicUrl(path);
+      const url = publicData.publicUrl;
+      const type = (file.metadata?.mimetype || "").toLowerCase();
+      const isVideo = type.startsWith("video/") || /\.(mp4|mov|webm|m4v|avi)$/i.test(file.name);
+
+      const card = document.createElement("article");
+      card.className = "wav-card";
+      card.innerHTML = `
+        ${isVideo
+          ? `<video class="wav-card-media" src="${esc(url)}" controls playsinline preload="metadata"></video>`
+          : `<img class="wav-card-media" src="${esc(url)}" loading="lazy" alt="WAV의 기록">`}
+        <div class="wav-card-info">
+          <div class="wav-card-meta"><span>${isVideo ? "VIDEO" : "PHOTO"}</span><span>WAV ARCHIVE</span></div>
+          <div class="wav-card-caption">${esc(file.name.replace(/^\d+_[a-z0-9]+_/i,"").replace(/\.[^.]+$/,""))}</div>
+        </div>`;
+      gallery.appendChild(card);
+    });
+  }
+
+  uploadButton.addEventListener("click", async () => {
+    const file = fileInput.files?.[0];
+    if (!file) {
+      status.textContent = "사진 또는 영상을 먼저 선택해주세요.";
+      return;
+    }
+    if (file.size > 50 * 1024 * 1024) {
+      status.textContent = "파일은 50MB 이하로 올려주세요.";
+      return;
+    }
+
+    const uploader = document.getElementById("wavUploaderName")?.value.trim() || "익명 WAV";
+    const member = document.getElementById("wavMember")?.value || "tripleS";
+    const caption = document.getElementById("wavCaption")?.value.trim() || "tripleS의 순간";
+
+    uploadButton.disabled = true;
+    status.textContent = "업로드 중...";
+
+    try {
+      const ext = (file.name.split(".").pop() || "bin").toLowerCase();
+      const safeBase = file.name.replace(/\.[^.]+$/, "").replace(/[^a-zA-Z0-9가-힣_-]/g, "_").slice(0, 70);
+      const unique = `${Date.now()}_${crypto.randomUUID().slice(0,8)}_${safeBase}.${ext}`;
+      const path = "wav/" + unique;
+
+      const { error } = await client.storage.from("Media").upload(path, file, {
+        cacheControl: "3600",
+        upsert: false,
+        contentType: file.type || "application/octet-stream"
+      });
+      if (error) throw error;
+
+      /*
+       * 파일명에 업로더/멤버/한마디를 보존합니다.
+       * 별도 DB 테이블이 없어도 archive에서 확인할 수 있도록 구성했습니다.
+       */
+      status.textContent = `업로드 완료 · ${member} · ${uploader}`;
+      fileInput.value = "";
+      fileName.textContent = "사진 또는 영상 선택";
+      document.getElementById("wavCaption").value = "";
+      await loadArchive();
+    } catch (e) {
+      console.error(e);
+      status.textContent = "업로드에 실패했습니다. Supabase 정책을 확인해주세요.";
+    } finally {
+      uploadButton.disabled = false;
+    }
+  });
+
+  refresh.addEventListener("click", loadArchive);
+  loadArchive();
+})();
+</script>
 
 </body>
 </html>
