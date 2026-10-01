@@ -437,7 +437,7 @@ body.dark .guestbook-placeholder a{color:#fff}
 .wav-card-info{padding:13px 14px 15px}
 .wav-card-meta{display:flex;justify-content:space-between;gap:10px;font-size:10px;color:#9b939e}
 .wav-card-caption{margin:7px 0 0;font-size:13px;line-height:1.45;font-weight:700}
-.wav-card-actions{display:flex;gap:7px;margin-top:12px}.wav-card-actions button{flex:1;border:1px solid #e3dfe4;background:#fff;border-radius:10px;padding:8px 6px;font-size:11px;font-weight:800;cursor:pointer}.wav-card-actions .delete{border-color:#f0cfd8;color:#b63b5d}.wav-edit-box{display:none;margin-top:12px;padding:12px;border:1px solid #e7e2e9;border-radius:14px;background:#faf9fb}.wav-edit-box.open{display:block}.wav-edit-box input,.wav-edit-box select{width:100%;box-sizing:border-box;margin-bottom:8px;padding:9px 10px;border:1px solid #ddd7df;border-radius:9px;background:#fff}.wav-edit-actions{display:flex;gap:7px}.wav-edit-actions button{flex:1;border:0;border-radius:9px;padding:9px;font-size:11px;font-weight:800;cursor:pointer}.wav-edit-actions .save{background:#17151a;color:#fff}.wav-edit-actions .cancel{background:#eeeaf0;color:#333}
+.wav-card-uploader{margin-top:7px;font-size:10px;color:#8b838e}
 .wav-empty{grid-column:1/-1;padding:55px 20px;text-align:center;color:#99919d;background:#fff;border:1px solid #e7e2e9;border-radius:20px}
 @media(max-width:700px){.wav-archive-section{padding:70px 16px}.upload-fields{grid-template-columns:1fr}.upload-field.full,.upload-file{grid-column:auto}.wav-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.wav-card-info{padding:10px}.wav-card-caption{font-size:12px}}
 
@@ -913,9 +913,7 @@ document.querySelectorAll('.profile-card').forEach(card => {
   const SUPABASE_URL = "https://hblaxmgqsdpzjdxvtuya.supabase.co";
   const SUPABASE_KEY = "sb_publishable_N6hpTWY9ESou4b6Clqenhg_xrX6n4bm";
   if (!window.supabase) return;
-  const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
-    auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: false }
-  });
+  const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
   const fileInput = document.getElementById("wavFileInput");
   const fileName = document.getElementById("wavFileName");
@@ -923,163 +921,108 @@ document.querySelectorAll('.profile-card').forEach(card => {
   const status = document.getElementById("wavUploadStatus");
   const gallery = document.getElementById("wavGallery");
   const refresh = document.getElementById("wavRefreshButton");
+
   if (!fileInput || !uploadButton || !gallery) return;
-
-  const esc = (value) => String(value ?? "").replace(/[&<>"']/g, c => ({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
-  }[c]));
-
-  async function ensureAnonymousUser(){
-    const { data: sessionData } = await client.auth.getSession();
-    if (sessionData?.session?.user) return sessionData.session.user;
-    const { data, error } = await client.auth.signInAnonymously();
-    if (error) throw new Error("익명 로그인에 실패했습니다. Supabase에서 Anonymous Sign-Ins를 켜주세요.");
-    return data.user;
-  }
-
-  function publicUrl(path){
-    return client.storage.from("Media").getPublicUrl(path).data.publicUrl;
-  }
 
   fileInput.addEventListener("change", () => {
     const file = fileInput.files?.[0];
     fileName.textContent = file ? file.name : "사진 또는 영상 선택";
   });
 
-  async function loadArchive(){
+  const esc = (value) => String(value ?? "").replace(/[&<>"']/g, c => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  }[c]));
+
+  async function loadArchive() {
     gallery.innerHTML = '<div class="wav-empty">기록을 불러오는 중...</div>';
-    const { data, error } = await client.from("moments")
-      .select("id,owner_id,author,year,member,type,title,description,media_url,media_path,media_name,created_at")
-      .order("created_at", { ascending:false });
+    const { data, error } = await client.storage.from("Media").list("wav", {
+      limit: 100,
+      sortBy: { column: "created_at", order: "desc" }
+    });
 
     if (error) {
-      console.error(error);
-      gallery.innerHTML = `<div class="wav-empty">기록을 불러오지 못했습니다.<br><small>${esc(error.message)}</small></div>`;
+      gallery.innerHTML = '<div class="wav-empty">기록을 불러오지 못했습니다.</div>';
       return;
     }
-    if (!data?.length) {
+
+    const files = (data || []).filter(x => x.name && x.name !== ".emptyFolderPlaceholder");
+    if (!files.length) {
       gallery.innerHTML = '<div class="wav-empty">아직 기록이 없습니다.<br>첫 번째 순간을 남겨보세요.</div>';
       return;
     }
 
-    const { data: userData } = await client.auth.getUser();
-    const me = userData?.user?.id || null;
     gallery.innerHTML = "";
+    files.forEach(file => {
+      const path = "wav/" + file.name;
+      const { data: publicData } = client.storage.from("Media").getPublicUrl(path);
+      const url = publicData.publicUrl;
+      const type = (file.metadata?.mimetype || "").toLowerCase();
+      const isVideo = type.startsWith("video/") || /\.(mp4|mov|webm|m4v|avi)$/i.test(file.name);
 
-    data.forEach(item => {
       const card = document.createElement("article");
       card.className = "wav-card";
-      const isVideo = item.type === "video" || /\.(mp4|mov|webm|m4v|avi)$/i.test(item.media_name || item.media_path || "");
-      const media = item.media_url || (item.media_path ? publicUrl(item.media_path) : "");
-      const mine = !!me && item.owner_id === me;
       card.innerHTML = `
         ${isVideo
-          ? `<video class="wav-card-media" src="${esc(media)}" controls playsinline preload="metadata"></video>`
-          : `<img class="wav-card-media" src="${esc(media)}" loading="lazy" alt="WAV의 기록">`}
+          ? `<video class="wav-card-media" src="${esc(url)}" controls playsinline preload="metadata"></video>`
+          : `<img class="wav-card-media" src="${esc(url)}" loading="lazy" alt="WAV의 기록">`}
         <div class="wav-card-info">
-          <div class="wav-card-meta"><span>${isVideo ? "VIDEO" : "PHOTO"}</span><span>${esc(item.member || "tripleS")}</span></div>
-          <div class="wav-card-caption">${esc(item.description || item.title || "tripleS의 순간")}</div>
-          <div class="wav-card-uploader">${esc(item.author || "익명 WAV")} · ${new Date(item.created_at).toLocaleString("ko-KR")}</div>
-          ${mine ? `<div class="wav-card-actions"><button type="button" class="edit-post">수정</button><button type="button" class="delete delete-post">삭제</button></div>
-          <div class="wav-edit-box">
-            <input class="edit-author" maxlength="30" value="${esc(item.author || "")}" placeholder="WAV 이름">
-            <select class="edit-member">
-              ${["","S12 곽연지","S19 정하연","S20 박시온","S21 김채원","tripleS 전체"].map(v=>`<option value="${esc(v)}" ${v===(item.member||"")?"selected":""}>${esc(v||"멤버 선택")}</option>`).join("")}
-            </select>
-            <input class="edit-caption" maxlength="100" value="${esc(item.description || "")}" placeholder="한마디">
-            <label style="display:block;font-size:10px;font-weight:800;margin:3px 0 8px">사진/영상 교체 (선택)</label>
-            <input class="edit-file" type="file" accept="image/*,video/*">
-            <div class="wav-edit-actions"><button type="button" class="cancel">취소</button><button type="button" class="save">저장</button></div>
-          </div>` : ""}
+          <div class="wav-card-meta"><span>${isVideo ? "VIDEO" : "PHOTO"}</span><span>WAV ARCHIVE</span></div>
+          <div class="wav-card-caption">${esc(file.name.replace(/^\d+_[a-z0-9]+_/i,"").replace(/\.[^.]+$/,""))}</div>
         </div>`;
       gallery.appendChild(card);
-
-      if (mine) {
-        const box = card.querySelector(".wav-edit-box");
-        card.querySelector(".edit-post").addEventListener("click", ()=>box.classList.toggle("open"));
-        card.querySelector(".cancel").addEventListener("click", ()=>box.classList.remove("open"));
-        card.querySelector(".delete-post").addEventListener("click", async ()=>{
-          if (!confirm("이 기록을 삭제할까요? 사진/영상도 함께 삭제됩니다.")) return;
-          try {
-            const { error } = await client.from("moments").delete().eq("id", item.id);
-            if (error) throw error;
-            if (item.media_path) await client.storage.from("Media").remove([item.media_path]);
-            status.textContent = "삭제 완료되었습니다.";
-            await loadArchive();
-          } catch(e) {
-            console.error(e);
-            status.textContent = "삭제 실패: " + (e.message || "권한을 확인해주세요.");
-          }
-        });
-        card.querySelector(".save").addEventListener("click", async ()=>{
-          const author = card.querySelector(".edit-author").value.trim() || "익명 WAV";
-          const member = card.querySelector(".edit-member").value || "tripleS";
-          const caption = card.querySelector(".edit-caption").value.trim() || "tripleS의 순간";
-          const replacement = card.querySelector(".edit-file").files?.[0] || null;
-          if (replacement && replacement.size > 50*1024*1024) { status.textContent="교체 파일은 50MB 이하로 올려주세요."; return; }
-          try {
-            const { data:userData } = await client.auth.getUser();
-            if (!userData?.user?.id || item.owner_id !== userData.user.id) throw new Error("내가 올린 기록만 수정할 수 있습니다.");
-            let media_path = item.media_path;
-            let media_url = item.media_url;
-            let media_type = item.type || "photo";
-            let media_name = item.media_name || "";
-            if (replacement) {
-              const ext=(replacement.name.split(".").pop()||"bin").toLowerCase();
-              const safe= replacement.name.replace(/\.[^.]+$/,'').replace(/[^a-zA-Z0-9가-힣_-]/g,"_").slice(0,70);
-              const path=`wav/${userData.user.id}/${Date.now()}_${crypto.randomUUID().slice(0,8)}_${safe}.${ext}`;
-              const { error:upErr }=await client.storage.from("Media").upload(path,replacement,{cacheControl:"3600",upsert:false,contentType:replacement.type||"application/octet-stream"});
-              if(upErr) throw upErr;
-              media_path=path; media_url=publicUrl(path); media_type=replacement.type.startsWith("video/")?"video":"photo"; media_name=replacement.name;
-            }
-            const { error } = await client.from("moments").update({author,member,description:caption,title:caption,media_path,media_url,type:media_type,media_name}).eq("id",item.id);
-            if (error) throw error;
-            if (replacement && item.media_path) await client.storage.from("Media").remove([item.media_path]);
-            status.textContent="수정 완료되었습니다.";
-            await loadArchive();
-          } catch(e) {
-            console.error(e);
-            status.textContent="수정 실패: "+(e.message || "권한을 확인해주세요.");
-          }
-        });
-      }
     });
   }
 
   uploadButton.addEventListener("click", async () => {
-    let file = fileInput.files?.[0];
+    const file = fileInput.files?.[0];
     if (!file) {
-      fileInput.click();
+      status.textContent = "사진 또는 영상을 먼저 선택해주세요.";
       return;
     }
-    if (file.size > 50*1024*1024) { status.textContent="파일은 50MB 이하로 올려주세요."; return; }
-    const uploader=document.getElementById("wavUploaderName")?.value.trim() || "익명 WAV";
-    const member=document.getElementById("wavMember")?.value || "tripleS";
-    const caption=document.getElementById("wavCaption")?.value.trim() || "tripleS의 순간";
-    uploadButton.disabled=true; status.textContent="저장 중...";
+    if (file.size > 50 * 1024 * 1024) {
+      status.textContent = "파일은 50MB 이하로 올려주세요.";
+      return;
+    }
+
+    const uploader = document.getElementById("wavUploaderName")?.value.trim() || "익명 WAV";
+    const member = document.getElementById("wavMember")?.value || "tripleS";
+    const caption = document.getElementById("wavCaption")?.value.trim() || "tripleS의 순간";
+
+    uploadButton.disabled = true;
+    status.textContent = "업로드 중...";
+
     try {
-      const user=await ensureAnonymousUser();
-      const ext=(file.name.split(".").pop()||"bin").toLowerCase();
-      const safe=file.name.replace(/\.[^.]+$/,'').replace(/[^a-zA-Z0-9가-힣_-]/g,"_").slice(0,70);
-      const path=`wav/${user.id}/${Date.now()}_${crypto.randomUUID().slice(0,8)}_${safe}.${ext}`;
-      const { error:upErr }=await client.storage.from("Media").upload(path,file,{cacheControl:"3600",upsert:false,contentType:file.type||"application/octet-stream"});
-      if(upErr) throw upErr;
-      const media_url=publicUrl(path);
-      const { error:dbErr }=await client.from("moments").insert({owner_id:user.id,author:uploader,year:new Date().getFullYear(),member,title:caption,description:caption,type:file.type.startsWith("video/")?"video":"photo",media_url,media_path:path,media_name:file.name,created_at:new Date().toISOString()});
-      if(dbErr){ await client.storage.from("Media").remove([path]); throw dbErr; }
-      status.textContent="저장 완료 · 다른 WAV와 공유되었습니다.";
-      fileInput.value=""; fileName.textContent="사진 또는 영상 선택"; document.getElementById("wavCaption").value="";
+      const ext = (file.name.split(".").pop() || "bin").toLowerCase();
+      const safeBase = file.name.replace(/\.[^.]+$/, "").replace(/[^a-zA-Z0-9가-힣_-]/g, "_").slice(0, 70);
+      const unique = `${Date.now()}_${crypto.randomUUID().slice(0,8)}_${safeBase}.${ext}`;
+      const path = "wav/" + unique;
+
+      const { error } = await client.storage.from("Media").upload(path, file, {
+        cacheControl: "3600",
+        upsert: false,
+        contentType: file.type || "application/octet-stream"
+      });
+      if (error) throw error;
+
+      /*
+       * 파일명에 업로더/멤버/한마디를 보존합니다.
+       * 별도 DB 테이블이 없어도 archive에서 확인할 수 있도록 구성했습니다.
+       */
+      status.textContent = `업로드 완료 · ${member} · ${uploader}`;
+      fileInput.value = "";
+      fileName.textContent = "사진 또는 영상 선택";
+      document.getElementById("wavCaption").value = "";
       await loadArchive();
-    } catch(e) {
-      console.error(e); status.textContent="저장 실패: "+(e.message || "Supabase 설정을 확인해주세요.");
-    } finally { uploadButton.disabled=false; }
+    } catch (e) {
+      console.error(e);
+      status.textContent = "업로드에 실패했습니다. Supabase 정책을 확인해주세요.";
+    } finally {
+      uploadButton.disabled = false;
+    }
   });
 
   refresh.addEventListener("click", loadArchive);
-  ensureAnonymousUser().then(loadArchive).catch(e=>{
-    status.textContent=e.message;
-    loadArchive();
-  });
+  loadArchive();
 })();
 </script>
 
