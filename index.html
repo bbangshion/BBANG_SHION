@@ -404,7 +404,45 @@ body.dark .guestbook-placeholder a{color:#fff}
 .bbangshion-instagram{padding:80px 0;text-align:center;background:linear-gradient(180deg,#fafafd,#fff)}
 .instagram-btn{display:inline-flex;margin-top:20px;text-decoration:none}
 
+
+/* WAV ARCHIVE */
+.wav-archive-section{padding:96px 20px;background:#f8f7fa;color:#17151a}
+.wav-archive-section .section-inner{max-width:1080px;margin:0 auto}
+.archive-kicker,.upload-label{font-size:10px;letter-spacing:.18em;font-weight:800;color:#9a8e9b}
+.wav-archive-section h2{margin:8px 0 8px;font-size:clamp(28px,5vw,46px);letter-spacing:-.04em}
+.archive-lead{margin:0 0 34px;color:#7d7780}
+.wav-upload-panel{padding:28px;border:1px solid #e5e1e7;border-radius:28px;background:rgba(255,255,255,.82);box-shadow:0 18px 55px rgba(30,20,40,.07)}
+.upload-heading,.archive-toolbar{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.upload-heading h3,.archive-toolbar h3{margin:6px 0 0;font-size:21px;letter-spacing:-.03em}
+.upload-badge{padding:8px 12px;border-radius:999px;background:#18161b;color:#fff;font-size:10px;font-weight:800;letter-spacing:.12em}
+.upload-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
+.upload-field{display:flex;flex-direction:column;gap:7px}
+.upload-field.full{grid-column:1/-1}
+.upload-field>span{font-size:11px;font-weight:800;color:#625b65}
+.upload-field input,.upload-field select{width:100%;height:48px;border:1px solid #ded9e1;border-radius:14px;background:#fff;padding:0 14px;font:inherit;outline:none}
+.upload-field input:focus,.upload-field select:focus{border-color:#8d778d;box-shadow:0 0 0 3px rgba(141,119,141,.1)}
+.upload-file{grid-column:1/-1;display:flex;align-items:center;gap:13px;padding:15px;border:1px dashed #cfc7d3;border-radius:17px;background:#fbfafc;cursor:pointer}
+.upload-file-icon{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#19171c;color:#fff;font-size:20px}
+.upload-file strong,.upload-file small{display:block}
+.upload-file strong{font-size:13px}
+.upload-file small{margin-top:4px;color:#99919d;font-size:10px}
+.wav-upload-button{width:100%;height:52px;margin-top:18px;border:0;border-radius:15px;background:#19171c;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 18px;font-weight:800;cursor:pointer}
+.wav-upload-button:disabled{opacity:.5;cursor:wait}
+.wav-upload-status{min-height:18px;margin-top:12px;text-align:center;font-size:12px;color:#777}
+.archive-toolbar{margin:52px 0 18px}
+.wav-refresh-button{border:1px solid #ddd7df;background:#fff;border-radius:999px;padding:9px 14px;font-size:11px;font-weight:800;cursor:pointer}
+.wav-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.wav-card{overflow:hidden;border-radius:20px;background:#fff;border:1px solid #e6e1e8;box-shadow:0 10px 28px rgba(30,20,40,.05)}
+.wav-card-media{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;background:#eee}
+.wav-card-info{padding:13px 14px 15px}
+.wav-card-meta{display:flex;justify-content:space-between;gap:10px;font-size:10px;color:#9b939e}
+.wav-card-caption{margin:7px 0 0;font-size:13px;line-height:1.45;font-weight:700}
+.wav-card-uploader{margin-top:7px;font-size:10px;color:#8b838e}
+.wav-empty{grid-column:1/-1;padding:55px 20px;text-align:center;color:#99919d;background:#fff;border:1px solid #e7e2e9;border-radius:20px}
+@media(max-width:700px){.wav-archive-section{padding:70px 16px}.upload-fields{grid-template-columns:1fr}.upload-field.full,.upload-file{grid-column:auto}.wav-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.wav-card-info{padding:10px}.wav-card-caption{font-size:12px}}
+
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 </div>
@@ -626,6 +664,78 @@ body.dark .guestbook-placeholder a{color:#fff}
   </div>
 </section>
 
+
+<!-- WAV ARCHIVE START -->
+<section id="wav-archive" class="wav-archive-section">
+  <div class="section-inner">
+    <div class="archive-kicker">WAV ARCHIVE</div>
+    <h2>WAV가 올리는 tripleS의 순간들</h2>
+    <p class="archive-lead">사진과 영상을 자유롭게 기록하고, 함께 간직하는 공간</p>
+
+    <div class="wav-upload-panel">
+      <div class="upload-heading">
+        <div>
+          <span class="upload-label">SHARE A MOMENT</span>
+          <h3>오늘의 순간을 남겨주세요</h3>
+        </div>
+        <span class="upload-badge">WAV</span>
+      </div>
+
+      <div class="upload-fields">
+        <label class="upload-field">
+          <span>WAV 이름</span>
+          <input id="wavUploaderName" type="text" maxlength="30" placeholder="닉네임을 입력해주세요">
+        </label>
+
+        <label class="upload-field">
+          <span>멤버</span>
+          <select id="wavMember">
+            <option value="">멤버 선택 (선택사항)</option>
+            <option>S12 곽연지</option>
+            <option>S19 정하연</option>
+            <option>S20 박시온</option>
+            <option>S21 김채원</option>
+            <option>tripleS 전체</option>
+          </select>
+        </label>
+
+        <label class="upload-field full">
+          <span>한마디</span>
+          <input id="wavCaption" type="text" maxlength="100" placeholder="이 순간을 설명해주세요">
+        </label>
+
+        <label class="upload-file" for="wavFileInput">
+          <span class="upload-file-icon">＋</span>
+          <span>
+            <strong id="wavFileName">사진 또는 영상 선택</strong>
+            <small>JPG · PNG · WEBP · MP4 · MOV · 최대 50MB</small>
+          </span>
+        </label>
+        <input id="wavFileInput" type="file" accept="image/*,video/*" hidden>
+      </div>
+
+      <button id="wavUploadButton" type="button" class="wav-upload-button">
+        <span>WAV의 기록 남기기</span><span>↗</span>
+      </button>
+
+      <div id="wavUploadStatus" class="wav-upload-status" aria-live="polite"></div>
+    </div>
+
+    <div class="archive-toolbar">
+      <div>
+        <span class="upload-label">LATEST MOMENTS</span>
+        <h3>최근 기록</h3>
+      </div>
+      <button id="wavRefreshButton" type="button" class="wav-refresh-button">새로고침 ↻</button>
+    </div>
+
+    <div id="wavGallery" class="wav-gallery">
+      <div class="wav-empty">기록을 불러오는 중...</div>
+    </div>
+  </div>
+</section>
+<!-- WAV ARCHIVE END -->
+
 </footer>
 <div id="modal" class="modal"><div class="modalbox"><button class="modalclose" id="modalClose">×</button><div id="modalMedia" class="modalmedia"></div><div class="modalcontent"><span id="modalMember" class="membertag"></span><h2 id="modalTitle"></h2><p id="modalDesc"></p><div class="lightbox-actions"><a id="downloadBtn" class="lb-btn" href="#" target="_blank" rel="noopener">저장</a></div></div></div></div><div id="toast" class="toast"></div>
 <script>
@@ -778,7 +888,7 @@ themeToggle.onclick=()=>applyTheme(document.body.classList.contains("dark")?"lig
 const SHARED_BACKEND = {
   provider: "supabase",
   url: "https://hblaxmgqsdpzjdxvtuya.supabase.co",
-  anonKey: "PASTE_SUPABASE_ANON_KEY_HERE"
+  anonKey: "sb_publishable_N6hpTWY9ESou4b6Clqenhg_xrX6n4bm"
 };
 
 async function savePublicMemory(item, file){
@@ -870,6 +980,125 @@ document.querySelectorAll('.profile-card').forEach(card => {
   });
   card.setAttribute('tabindex','0');
 });
+</script>
+
+
+<script>
+(() => {
+  const SUPABASE_URL = "https://hblaxmgqsdpzjdxvtuya.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_N6hpTWY9ESou4b6Clqenhg_xrX6n4bm";
+  if (!window.supabase) return;
+  const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  const fileInput = document.getElementById("wavFileInput");
+  const fileName = document.getElementById("wavFileName");
+  const uploadButton = document.getElementById("wavUploadButton");
+  const status = document.getElementById("wavUploadStatus");
+  const gallery = document.getElementById("wavGallery");
+  const refresh = document.getElementById("wavRefreshButton");
+
+  if (!fileInput || !uploadButton || !gallery) return;
+
+  fileInput.addEventListener("change", () => {
+    const file = fileInput.files?.[0];
+    fileName.textContent = file ? file.name : "사진 또는 영상 선택";
+  });
+
+  const esc = (value) => String(value ?? "").replace(/[&<>"']/g, c => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  }[c]));
+
+  async function loadArchive() {
+    gallery.innerHTML = '<div class="wav-empty">기록을 불러오는 중...</div>';
+    const { data, error } = await client.storage.from("Media").list("wav", {
+      limit: 100,
+      sortBy: { column: "created_at", order: "desc" }
+    });
+
+    if (error) {
+      gallery.innerHTML = '<div class="wav-empty">기록을 불러오지 못했습니다.</div>';
+      return;
+    }
+
+    const files = (data || []).filter(x => x.name && x.name !== ".emptyFolderPlaceholder");
+    if (!files.length) {
+      gallery.innerHTML = '<div class="wav-empty">아직 기록이 없습니다.<br>첫 번째 순간을 남겨보세요.</div>';
+      return;
+    }
+
+    gallery.innerHTML = "";
+    files.forEach(file => {
+      const path = "wav/" + file.name;
+      const { data: publicData } = client.storage.from("Media").getPublicUrl(path);
+      const url = publicData.publicUrl;
+      const type = (file.metadata?.mimetype || "").toLowerCase();
+      const isVideo = type.startsWith("video/") || /\.(mp4|mov|webm|m4v|avi)$/i.test(file.name);
+
+      const card = document.createElement("article");
+      card.className = "wav-card";
+      card.innerHTML = `
+        ${isVideo
+          ? `<video class="wav-card-media" src="${esc(url)}" controls playsinline preload="metadata"></video>`
+          : `<img class="wav-card-media" src="${esc(url)}" loading="lazy" alt="WAV의 기록">`}
+        <div class="wav-card-info">
+          <div class="wav-card-meta"><span>${isVideo ? "VIDEO" : "PHOTO"}</span><span>WAV ARCHIVE</span></div>
+          <div class="wav-card-caption">${esc(file.name.replace(/^\d+_[a-z0-9]+_/i,"").replace(/\.[^.]+$/,""))}</div>
+        </div>`;
+      gallery.appendChild(card);
+    });
+  }
+
+  uploadButton.addEventListener("click", async () => {
+    const file = fileInput.files?.[0];
+    if (!file) {
+      status.textContent = "사진 또는 영상을 먼저 선택해주세요.";
+      return;
+    }
+    if (file.size > 50 * 1024 * 1024) {
+      status.textContent = "파일은 50MB 이하로 올려주세요.";
+      return;
+    }
+
+    const uploader = document.getElementById("wavUploaderName")?.value.trim() || "익명 WAV";
+    const member = document.getElementById("wavMember")?.value || "tripleS";
+    const caption = document.getElementById("wavCaption")?.value.trim() || "tripleS의 순간";
+
+    uploadButton.disabled = true;
+    status.textContent = "업로드 중...";
+
+    try {
+      const ext = (file.name.split(".").pop() || "bin").toLowerCase();
+      const safeBase = file.name.replace(/\.[^.]+$/, "").replace(/[^a-zA-Z0-9가-힣_-]/g, "_").slice(0, 70);
+      const unique = `${Date.now()}_${crypto.randomUUID().slice(0,8)}_${safeBase}.${ext}`;
+      const path = "wav/" + unique;
+
+      const { error } = await client.storage.from("Media").upload(path, file, {
+        cacheControl: "3600",
+        upsert: false,
+        contentType: file.type || "application/octet-stream"
+      });
+      if (error) throw error;
+
+      /*
+       * 파일명에 업로더/멤버/한마디를 보존합니다.
+       * 별도 DB 테이블이 없어도 archive에서 확인할 수 있도록 구성했습니다.
+       */
+      status.textContent = `업로드 완료 · ${member} · ${uploader}`;
+      fileInput.value = "";
+      fileName.textContent = "사진 또는 영상 선택";
+      document.getElementById("wavCaption").value = "";
+      await loadArchive();
+    } catch (e) {
+      console.error(e);
+      status.textContent = "업로드에 실패했습니다. Supabase 정책을 확인해주세요.";
+    } finally {
+      uploadButton.disabled = false;
+    }
+  });
+
+  refresh.addEventListener("click", loadArchive);
+  loadArchive();
+})();
 </script>
 
 </body>
