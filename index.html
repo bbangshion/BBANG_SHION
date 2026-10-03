@@ -42,12 +42,40 @@ main{overflow:hidden}.hero{min-height:760px;display:grid;place-items:center;posi
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
 @media(max-width:900px){.upgrade-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.objekt-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.music-upgrade-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.upgrade-grid,.objekt-grid,.music-upgrade-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.dday-inner{font-size:11px}.timeline-card,.objekt-card,.music-upgrade-card{padding:15px}.music-cover{height:120px}}
-.gravity-source-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:0 0 18px;padding:13px 16px;border:1px solid var(--line);border-radius:14px;background:var(--surface);font-size:11px;color:var(--muted)}.gravity-source-bar a,.source-link{color:inherit;font-weight:800;text-decoration:none}.source-link{display:inline-block;margin-top:12px;font-size:10px;opacity:.7}.source-link:hover,.gravity-source-bar a:hover{opacity:.65}@media(max-width:600px){.gravity-source-bar{align-items:flex-start;flex-direction:column}}</style>
+.gravity-source-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:0 0 18px;padding:13px 16px;border:1px solid var(--line);border-radius:14px;background:var(--surface);font-size:11px;color:var(--muted)}.gravity-source-bar a,.source-link{color:inherit;font-weight:800;text-decoration:none}.source-link{display:inline-block;margin-top:12px;font-size:10px;opacity:.7}.source-link:hover,.gravity-source-bar a:hover{opacity:.65}@media(max-width:600px){.gravity-source-bar{align-items:flex-start;flex-direction:column}}
+/* Gravity + Timeline refinement */
+.gravity-hero{display:flex;justify-content:space-between;align-items:center;gap:28px;padding:28px;margin-bottom:18px}
+.gravity-hero h3{font-size:clamp(28px,5vw,48px);margin:6px 0}
+.gravity-hero p{margin:0;color:var(--muted,#888)}
+.mini-label{font-size:10px;letter-spacing:.18em;font-weight:800;opacity:.65}
+.primary-mini-btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 16px;border-radius:999px;background:#111;color:#fff;text-decoration:none;font-size:12px;font-weight:800;white-space:nowrap}
+.gravity-summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 18px}
+.summary-stat{padding:18px 20px;border-radius:18px;background:rgba(255,255,255,.7);border:1px solid rgba(120,100,130,.13);display:flex;flex-direction:column;gap:5px}
+.summary-stat strong{font-size:22px;letter-spacing:-.03em}.summary-stat span{font-size:11px;color:#888}
+.gravity-table-wrap{overflow:hidden}.gravity-table-head,.gravity-row{display:grid;grid-template-columns:48px 110px minmax(190px,1.4fr) minmax(190px,1.4fr) 120px 90px;gap:12px;align-items:center}
+.gravity-table-head{padding:14px 18px;font-size:9px;letter-spacing:.13em;font-weight:800;color:#8c8590;background:rgba(0,0,0,.025)}
+.gravity-row{padding:15px 18px;border-top:1px solid rgba(120,100,130,.1);font-size:12px}
+.gravity-row .num{font-weight:900;opacity:.45}.gravity-row .date{font-size:10px;color:#8c8590}.gravity-row .title{font-weight:850}.gravity-row .result{font-weight:700}.gravity-row .como{font-variant-numeric:tabular-nums;font-weight:800}.gravity-row a{font-size:10px;font-weight:800;text-decoration:none}
+.gravity-tag{display:inline-flex;padding:5px 7px;border-radius:999px;background:rgba(150,120,170,.1);font-size:8px;margin-left:6px;color:#77657d}
+.source-note{font-size:10px;color:#918b94;margin:12px 3px 0;line-height:1.6}
+.timeline-controls{padding:16px;margin-bottom:14px;display:flex;flex-direction:column;gap:12px}
+.timeline-years,.timeline-types{display:flex;gap:7px;flex-wrap:wrap}.timeline-years button,.timeline-types button{border:1px solid rgba(120,100,130,.15);background:rgba(255,255,255,.7);border-radius:999px;padding:8px 11px;font-size:10px;font-weight:800;cursor:pointer}.timeline-years button.active,.timeline-types button.active{background:#17141a;color:#fff;border-color:#17141a}
+.official-source-chip{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:12px 0 20px;padding:11px 14px;border-radius:14px;background:rgba(255,255,255,.55);border:1px solid rgba(120,100,130,.1);font-size:10px;color:#85808a}.official-source-chip a{font-weight:800;text-decoration:none}
+.timeline-line{position:relative;padding:6px 0 10px}.timeline-line:before{content:"";position:absolute;left:15px;top:0;bottom:0;width:1px;background:linear-gradient(#d8c7de,#eee)}
+.timeline-event{position:relative;padding:0 0 18px 44px}.timeline-dot{position:absolute;left:9px;top:10px;width:13px;height:13px;border-radius:50%;background:#fff;border:3px solid #8c6d91;box-shadow:0 0 0 5px rgba(140,109,145,.08)}
+.timeline-card-new{padding:18px 20px;border-radius:20px;background:rgba(255,255,255,.72);border:1px solid rgba(120,100,130,.12);box-shadow:0 12px 32px rgba(30,20,40,.045);transition:transform .25s ease,box-shadow .25s ease}.timeline-card-new:hover{transform:translateY(-3px);box-shadow:0 18px 42px rgba(30,20,40,.08)}
+.timeline-meta{display:flex;gap:8px;align-items:center;font-size:9px;color:#8b838f;font-weight:800;letter-spacing:.08em}.timeline-kind{padding:5px 7px;border-radius:999px;background:rgba(140,109,145,.1);color:#715a77}.timeline-card-new h3{margin:8px 0 4px;font-size:17px}.timeline-card-new p{margin:0;color:#79737c;font-size:12px;line-height:1.55}.timeline-source{display:inline-block;margin-top:10px;font-size:10px;font-weight:800;text-decoration:none}
+@media(max-width:780px){.gravity-table-head{display:none}.gravity-row{grid-template-columns:1fr 1fr;padding:15px}.gravity-row>*{min-width:0}.gravity-row .num{display:none}.gravity-row .title{grid-column:1/-1;font-size:13px}.gravity-row .result{grid-column:1/-1}.gravity-row .link{justify-self:end}.gravity-summary-grid{grid-template-columns:1fr}.gravity-hero{align-items:flex-start;flex-direction:column}.official-source-chip{align-items:flex-start;flex-direction:column}}
+@media(prefers-color-scheme:dark){.summary-stat,.timeline-card-new,.official-source-chip,.timeline-years button,.timeline-types button{background:rgba(30,27,34,.72)}.gravity-table-head{background:rgba(255,255,255,.03)}}
+
+
+.gravity-result-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.gravity-result-card{padding:22px;border-radius:22px;background:rgba(255,255,255,.72);border:1px solid rgba(120,100,130,.13);box-shadow:0 12px 36px rgba(30,20,40,.05)}.gravity-result-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.gravity-result-card h3{margin:5px 0 3px;font-size:18px}.gravity-result-date{font-size:10px;color:#8b858e}.gravity-result-kind{font-size:9px;font-weight:900;letter-spacing:.1em;padding:6px 8px;border-radius:999px;background:rgba(140,109,145,.1)}.rank-list{margin-top:18px;display:grid;gap:8px}.rank-item{display:grid;grid-template-columns:34px minmax(0,1fr) auto;align-items:center;gap:10px;padding:11px 12px;border-radius:14px;background:rgba(0,0,0,.025)}.rank-no{font-size:11px;font-weight:900}.rank-name{font-weight:800;font-size:12px}.rank-value{font-size:10px;font-weight:800;color:#716a73;text-align:right}.rank-item.first{background:linear-gradient(90deg,rgba(155,119,170,.13),rgba(255,255,255,.2))}.como-total{margin-top:13px;font-size:10px;color:#89828c}.como-total strong{color:#29242b}.gravity-result-card .source-link{display:inline-block;margin-top:14px;font-size:10px;font-weight:900;text-decoration:none}@media(max-width:780px){.gravity-result-grid{grid-template-columns:1fr}}
+</style>
 <style>
 .creator-strip{position:relative;z-index:90;background:var(--text);color:var(--surface);font-size:9px;font-weight:900;letter-spacing:.12em}.creator-inner{width:min(1200px,calc(100% - 30px));height:30px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px}.creator-strip a{color:inherit;text-decoration:none}.creator-strip a b{letter-spacing:.02em}.official-socials{display:flex;align-items:center;gap:14px;margin-top:22px;flex-wrap:wrap;font-size:9px;font-weight:900;letter-spacing:.13em}.official-socials span{color:var(--muted)}.official-socials a{color:inherit;text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:3px}.footer-socials{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;padding:20px 15px;border-top:1px solid var(--line);font-size:9px;font-weight:900;letter-spacing:.1em;color:var(--muted)}.footer-socials a{color:inherit;text-decoration:none}.footer-socials .dot{opacity:.4}@media(max-width:700px){.creator-inner{width:calc(100% - 22px);height:28px;font-size:7px}.creator-inner>span{display:none}.creator-inner{justify-content:center}.official-socials{gap:10px;margin-top:18px;font-size:8px}}</style></head>
 <body>
 <div class="dday-bar"><div class="dday-inner"><span>✦ NEXT WAV MOMENT</span><strong id="ddayEvent">다음 일정 확인 중</strong><span class="dday-value" id="ddayValue">—</span></div></div>
-<nav class="upgrade-nav"><div class="nav-inner"><a href="#about">ABOUT</a><a href="#units">UNITS</a><a href="#members">MEMBERS</a><a href="#gravity">GRAVITY</a><a href="#objekt">OBJEKT</a><a href="#music-guide">MUSIC</a><a href="#wav-archive">WAV ARCHIVE</a></div></nav>
+<nav class="upgrade-nav"><div class="nav-inner"><a href="#about">ABOUT</a><a href="#units">UNITS</a><a href="#members">MEMBERS</a><a href="#gravity">GRAVITY</a><a href="#timeline">TIMELINE</a><a href="#objekt">OBJEKT</a><a href="#song-guide">GUIDE</a><a href="#music-guide">MUSIC</a><a href="#wav-archive">WAV ARCHIVE</a></div></nav>
 
 <div class="creator-strip"><div class="creator-inner"><span>WAV ARCHIVE · FAN-MADE</span><a href="https://www.instagram.com/bbangshion/" target="_blank" rel="noopener noreferrer">CREATED BY <b>@bbangshion</b> ↗</a></div></div><header class="header"><div class="nav"><a class="brand" href="#top">WAV <span>ARCHIVE</span></a><a class="creator-link" href="https://www.instagram.com/bbangshion/" target="_blank" rel="noopener noreferrer" aria-label="WAV ARCHIVE 제작자 bbangshion 인스타그램"><svg class="creator-instagram" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.1" stroke="currentColor" stroke-width="2"/><circle cx="17.55" cy="6.55" r="1.15" fill="currentColor"/></svg><span class="creator-label">MADE BY</span><span class="creator-handle">bbangshion</span></a><nav class="navlinks"><a href="#about">ABOUT</a><a href="#units">UNITS</a><a href="#members">MEMBERS</a><a href="#music">MUSIC</a><a href="#archive">WAV ARCHIVE</a><button class="theme" id="theme">☾</button></nav><button class="menu" id="menu">☰</button></div></header>
 <nav class="mobile-menu" id="mobileMenu"><a href="#about">ABOUT</a><a href="#units">UNITS</a><a href="#members">MEMBERS</a><a href="#music">MUSIC</a><a href="#archive">WAV ARCHIVE</a><button class="theme" id="themeMobile">☾ 다크모드</button></nav>
@@ -467,27 +495,63 @@ main{overflow:hidden}.hero{min-height:760px;display:grid;place-items:center;posi
 <section class="section music" id="music"><div class="wrap"><div class="section-head"><div><span class="eyebrow">04 · MUSIC</span><h2>처음 듣는 WAV를 위한<br>대표곡 GUIDE</h2></div><p class="lead">공식 YouTube 플레이어로 대표적인 tripleS 곡을 바로 들을 수 있게 구성했습니다.</p></div><div class="music-grid"><article class="music-card"><iframe src="https://www.youtube.com/embed/8svMAgaCcQs" title="tripleS Rising" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><h3>Rising</h3><p>tripleS · ASSEMBLE</p></article><article class="music-card"><iframe src="https://www.youtube.com/embed/0cZq5gK7p0Q" title="tripleS Girls Never Die" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><h3>Girls' Never Die</h3><p>tripleS · ASSEMBLE24</p></article><article class="music-card"><iframe src="https://www.youtube.com/embed/6q8UMVXhXsE" title="tripleS Baby Flower" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><h3>Baby Flower</h3><p>tripleS · LOVE&POP pt.1 · 2026</p></article></div></div></section>
 <section class="section archive" id="archive"><div class="wrap"><div class="section-head"><div><span class="eyebrow">05 · WAV ARCHIVE</span><h2>WAV가 직접<br>기록하는 공간</h2></div><p class="lead">콘서트, 직캠, 팬아트, 생일, 앨범 언박싱, 우연히 찍은 한 장까지. WAV가 남긴 순간을 함께 쌓아갑니다.</p></div><div class="archive-panel"><div class="archive-intro"><div><span class="eyebrow">SHARE A MOMENT</span><h3 style="font-size:28px;letter-spacing:-.05em;margin:7px 0">오늘의 기록을 남겨주세요.</h3></div><p class="lead" style="margin:0">사진 또는 영상을 하나 첨부하고 멤버·유닛을 선택하면 바로 아카이브에 공개됩니다.</p></div><form id="uploadForm"><div class="upload-fields"><div class="field"><label>WAV 이름 / 닉네임</label><input id="nickname" required maxlength="30" placeholder="예: bbangshion"></div><div class="field"><label>멤버 / 유닛</label><select id="memberUnit"><option value="">선택 안 함</option><option>S01 윤서연</option><option>S02 정혜린</option><option>S03 이지우</option><option>S04 김채연</option><option>S05 김유연</option><option>S06 김수민</option><option>S07 김나경</option><option>S08 공유빈</option><option>S09 카에데</option><option>S10 서다현</option><option>S11 코토네</option><option>S12 곽연지</option><option>S13 니엔</option><option>S14 박소현</option><option>S15 신위</option><option>S16 마유</option><option>S17 린</option><option>S18 주빈</option><option>S19 정하연</option><option>S20 박시온</option><option>S21 김채원</option><option>S22 설린</option><option>S23 서아</option><option>S24 지연</option><option>AAA</option><option>+(KR)ystal Eyes</option><option>LOVElution</option><option>EVOLution</option><option>Aria</option><option>NXT</option><option>Visionary Vision</option><option>Glow</option><option>Moon</option><option>Sun</option><option>Neptune</option><option>Zenith</option></select></div><div class="field full"><label>한 줄 기록 <span style="font-weight:500">(선택)</span></label><textarea id="caption" maxlength="500" placeholder="오늘의 순간을 WAV들과 나눠보세요."></textarea></div><label class="filebox full"><div style="width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#111;color:#fff">＋</div><div><strong id="fileName">사진 또는 영상 선택</strong><small>JPG · PNG · WEBP · MP4 · MOV / 이미지 15MB · 영상 50MB</small></div><input id="mediaFile" type="file" accept="image/*,video/*" required></label></div><img id="previewImg" class="preview"><video id="previewVideo" class="preview" controls></video><button class="submit" id="uploadBtn" type="submit">WAV ARCHIVE에 기록하기</button><div class="status" id="uploadStatus"></div><p class="notice">※ 이 페이지는 Supabase Storage와 Database를 사용합니다. 운영 전에는 반드시 Storage 용량 제한, RLS, 스팸 방지 정책을 확인하세요.</p></form></div><div class="archive-toolbar"><div><span class="eyebrow">LIVE ARCHIVE</span><h3 style="margin:6px 0 0;font-size:24px">최근 WAV 기록</h3></div><div style="display:flex;gap:8px;align-items:center"><input id="archiveSearch" class="archive-search" placeholder="닉네임 · 내용 검색"><button class="refresh" id="refresh">새로고침 ↻</button></div></div><div class="gallery" id="gallery"><div class="empty">아직 기록이 없습니다.<br>첫 번째 WAV 기록을 남겨주세요.</div></div></div></section>
 
-<section class="section upgrade-section reveal" id="gravity"><div class="wrap"><div class="section-head"><div><span class="eyebrow">04 · GRAVITY</span><h2>선택이 만든 기록</h2></div><p class="lead">Apollo의 tripleS Gravity 기록을 바탕으로 주요 투표의 날짜·결과·참여 Dimension을 한눈에 볼 수 있게 정리했습니다.</p></div><div class="gravity-source-bar"><span>Apollo 기준 · 결과를 누르면 원문 Gravity로 이동</span><a href="https://apollo.cafe/gravity" target="_blank" rel="noopener">전체 Gravity 보기 ↗</a></div><div class="upgrade-grid"> 
-<article class="timeline-card glass-card"><span class="timeline-date">2022.09</span><h3>First Grand Gravity</h3><p>tripleS 초기 멤버들의 Dimension 구성을 결정한 첫 Grand Gravity.</p><div class="timeline-result">AAA · +(KR)ystal Eyes</div><a class="source-link" href="https://apollo.cafe/gravity/tripleS/1" target="_blank" rel="noopener">Apollo 기록 ↗</a></article>
-<article class="timeline-card glass-card"><span class="timeline-date">2022–2023</span><h3>Debut Main Song</h3><p>tripleS 데뷔 앨범의 메인곡을 팬 투표로 결정한 Gravity.</p><div class="timeline-result">Choose the Main Song</div><a class="source-link" href="https://apollo.cafe/gravity/tripleS/3" target="_blank" rel="noopener">Apollo 기록 ↗</a></article>
-<article class="timeline-card glass-card"><span class="timeline-date">2023</span><h3>Two Big WAVes</h3><p>S1–S16의 대형 Dimension 구성을 결정하는 Gravity 흐름.</p><div class="timeline-result">LOVElution · EVOLution</div><a class="source-link" href="https://apollo.cafe/gravity" target="_blank" rel="noopener">Apollo에서 검색 ↗</a></article>
-<article class="timeline-card glass-card"><span class="timeline-date">2024</span><h3>Japan Dimension</h3><p>일본 활동 Dimension의 멤버 구성을 결정한 Grand Gravity.</p><div class="timeline-result">Japan Dimension</div><a class="source-link" href="https://apollo.cafe/gravity/tripleS/65" target="_blank" rel="noopener">Day 2 결과 보기 ↗</a></article>
-<article class="timeline-card glass-card"><span class="timeline-date">2024.12</span><h3>2024 tripleS Awards</h3><p>한 해의 SIGNAL 등을 팬 투표로 돌아보는 연말 Gravity.</p><div class="timeline-result">SIGNAL of the Year</div><a class="source-link" href="https://apollo.cafe/gravity/tripleS/81" target="_blank" rel="noopener">결과 보기 ↗</a></article>
-<article class="timeline-card glass-card"><span class="timeline-date">2025.12–2026.01</span><h3>2025 tripleS Awards</h3><p>Scene Stealer, Best Couple, Scroll Stopper, Best Objekt 등 5개 부문.</p><div class="timeline-result">WAV 선택 · 5개 부문</div><a class="source-link" href="https://apollo.cafe/gravity/tripleS/159" target="_blank" rel="noopener">Best Objekt 결과 ↗</a></article>
-<article class="timeline-card glass-card"><span class="timeline-date">2026.04</span><h3>1theK Reality Show</h3><p>1theK와 함께 선보일 대형 예능의 콘셉트를 결정한 Gravity.</p><div class="timeline-result">Trust No One · 77.7%</div><a class="source-link" href="https://apollo.cafe/gravity/tripleS/184" target="_blank" rel="noopener">상세 결과 ↗</a></article>
-<article class="timeline-card glass-card"><span class="timeline-date">2026.08–09</span><h3>MSNZ / Autumn Dimension</h3><p>새 Dimension과 Unit Objekt 관련 Grand Gravity가 이어지는 현재의 기록.</p><div class="timeline-result">sun · Autumn26 등</div><a class="source-link" href="https://apollo.cafe/gravity/tripleS/119" target="_blank" rel="noopener">MSNZ sun 결과 ↗</a></article>
-</div></div></section>
 
-<section class="section upgrade-section reveal" id="objekt"><div class="wrap"><div class="section-head"><div><span class="eyebrow">05 · OBJEKT</span><h2>COSMO Objekt 도감</h2></div><p class="lead">Apollo의 tripleS Objekt 컬렉션 구조를 기준으로 시즌·에디션을 탐색합니다. 전체 실물/디지털 목록은 Apollo에서 바로 확인할 수 있습니다.</p></div><div class="gravity-source-bar"><span>Season · Collection · Type · Class 기준</span><a href="https://apollo.cafe/?artist=tripleS" target="_blank" rel="noopener">Apollo Objekt 전체 도감 ↗</a></div><div class="objekt-tools"><input id="objektSearch" placeholder="시즌 / 에디션 / 멤버 검색"><select id="objektSeason"><option value="ALL">전체 시즌</option><option>ATOM</option><option>BINARY</option><option>CREAM</option><option>DIVINE</option><option>SEASONAL</option></select></div><div class="objekt-grid" id="objektGrid"></div></div></section>
+<section class="section upgrade-section reveal" id="gravity">
+  <div class="wrap">
+    <div class="section-head"><div><span class="eyebrow">04 · GRAVITY</span><h2>GRAVITY RESULT ARCHIVE</h2></div><p class="lead">각 Gravity의 제목과 결과를 카드 안에서 바로 확인할 수 있도록 정리했습니다. 1~3위와 사용 COMO를 가능한 범위에서 원문 결과표 기준으로 표시합니다.</p></div>
+    <div class="gravity-hero glass-card"><div><span class="mini-label">COSMO · WAV VOTE ARCHIVE</span><h3>WAV가 만든 선택</h3><p>투표 결과를 외부 페이지로 보내지 않고 이 페이지에서 바로 볼 수 있습니다.</p></div><a class="primary-mini-btn" href="https://namu.wiki/w/tripleS/Gravity#s-2.4" target="_blank" rel="noopener">원문 보기 ↗</a></div>
+    <div class="gravity-result-grid" id="gravityResultGrid"></div>
+    <div class="source-note">출처: tripleS/Gravity 문서의 결과표. 결과표가 결선 2개 후보만 제공하거나, 조합/유닛별로 별도 집계되는 경우에는 3위를 임의로 만들지 않고 ‘해당 없음’으로 표시합니다.</div>
+  </div>
+</section>
+<section class="section upgrade-section reveal" id="timeline">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">05 · TIMELINE</span>
+        <h2>tripleS TIMELINE</h2>
+      </div>
+      <p class="lead">tripleSfans Timeline의 2022–2026 기록을 바탕으로, 멤버 공개부터 DIMENSION·음악·Gravity·공연까지 주요 순간을 연대순으로 정리했습니다.</p>
+    </div>
 
-<section class="section upgrade-section reveal" id="music-guide"><div class="wrap"><div class="section-head"><div><span class="eyebrow">06 · MUSIC</span><h2>MUSIC & CHEERING GUIDE</h2></div><p class="lead">곡을 선택하면 트랙 정보와 MV·음원·응원법을 한 화면에서 확인할 수 있습니다.</p></div><div class="music-upgrade-grid">
-<article class="music-upgrade-card glass-card" data-song="Girls' Capitalism"><div class="music-cover">ↀ</div><h3>Girls' Capitalism</h3><p>LOVElution · MUZIKAL</p></article>
-<article class="music-upgrade-card glass-card" data-song="Invincible"><div class="music-cover">⟡</div><h3>Invincible</h3><p>EVOLution · Mujuk</p></article>
-<article class="music-upgrade-card glass-card" data-song="Rising"><div class="music-cover">24</div><h3>Rising</h3><p>ASSEMBLE · Title Track</p></article>
-<article class="music-upgrade-card glass-card" data-song="Cherry Talk"><div class="music-cover">+</div><h3>Cherry Talk</h3><p>+(KR)ystal Eyes · AESTHETIC</p></article>
-</div></div></section>
+    <div class="timeline-controls glass-card">
+      <div class="timeline-years" id="timelineYears">
+        <button class="active" data-year="ALL">ALL</button>
+        <button data-year="2022">2022</button>
+        <button data-year="2023">2023</button>
+        <button data-year="2024">2024</button>
+        <button data-year="2025">2025</button>
+        <button data-year="2026">2026</button>
+      </div>
+      <div class="timeline-types" id="timelineTypes">
+        <button class="active" data-type="ALL">전체</button>
+        <button data-type="Reveal">REVEAL</button>
+        <button data-type="Dimension">DIMENSION</button>
+        <button data-type="Music">MUSIC</button>
+        <button data-type="Gravity">GRAVITY</button>
+        <button data-type="Concert">CONCERT</button>
+        <button data-type="Award">AWARD</button>
+        <button data-type="Japan">JAPAN</button>
+        <button data-type="Company">COMPANY</button>
+      </div>
+    </div>
+
+    <div class="official-source-chip">
+      <span>Source archive · tripleSfans Timeline</span>
+      <a href="https://triplesfans.com/timeline" target="_blank" rel="noopener">원문 타임라인 ↗</a>
+    </div>
+
+    <div class="timeline-line" id="timelineGrid"></div>
+  </div>
+</section>
+<section class="section upgrade-section reveal" id="objekt"><div class="wrap"><div class="section-head"><div><span class="eyebrow">06 · OBJEKT</span><h2>COSMO Objekt 도감</h2></div><p class="lead">Apollo의 tripleS Objekt 컬렉션을 기준으로 Atom01 · Binary01 · Cream01만 정리합니다. 시즌 또는 멤버를 검색하면 해당 오브젝트를 바로 좁혀볼 수 있습니다.</p></div><div class="gravity-source-bar"><span>ATOM01 · BINARY01 · CREAM01 · Welcome / First 101Z</span><a href="https://apollo.cafe/?artist=tripleS" target="_blank" rel="noopener">Apollo Objekt 전체 도감 ↗</a></div><div class="objekt-tools"><input id="objektSearch" placeholder="멤버 이름 / S번호 / 시즌 / 101Z 검색"><select id="objektSeason"><option value="ALL">전체 시즌</option><option value="Atom01">Atom01</option><option value="Binary01">Binary01</option><option value="Cream01">Cream01</option></select></div><div class="objekt-count" id="objektCount"></div><div class="objekt-grid" id="objektGrid"></div></div></section>
+
+<section class="section guide-section reveal" id="song-guide"><div class="wrap"><div class="section-head"><div><span class="eyebrow">05 · FIRST WAV GUIDE</span><h2>처음 듣는 WAV를 위한 대표 곡 GUIDE</h2></div><p class="lead">처음 tripleS를 접한 WAV가 대표곡의 분위기와 각 DIMENSION의 색을 빠르게 느낄 수 있도록 공식 뮤직비디오 3편을 모았습니다.</p></div><div class="guide-grid"><article class="guide-card"><iframe src="https://www.youtube.com/embed/2tda_TCjz8w" title="tripleS Girls Never Die" loading="lazy" allowfullscreen></iframe><h3>Girls Never Die</h3><p>ASSEMBLE24 · OT24 대표 타이틀</p></article><article class="guide-card"><iframe src="https://www.youtube.com/embed/KMythzAnNK0" title="tripleS EVOLution Invincible" loading="lazy" allowfullscreen></iframe><h3>Invincible</h3><p>EVOLution · ⟡ 대표곡</p></article><article class="guide-card"><iframe src="https://www.youtube.com/embed/6q8UMVXhXsE" title="tripleS Baby Flower" loading="lazy" allowfullscreen></iframe><h3>Baby Flower</h3><p>LOVE&POP pt.1 · 최신 대표곡</p></article></div></div></section>
+
+<section class="section upgrade-section reveal" id="music-guide"><div class="wrap"><div class="section-head"><div><span class="eyebrow">07 · MUSIC</span><h2>MUSIC & CHEERING GUIDE</h2></div><p class="lead">tripleS 음반 흐름을 간단히 보고, 곡을 선택하면 MV·음원·응원 가이드 링크를 확인할 수 있습니다.</p></div><div class="music-summary"><article class="music-summary-card"><b>ASSEMBLE</b><strong>Rising</strong><span>S1–S10 · 2023.02.13 · 첫 정규 활동의 시작</span></article><article class="music-summary-card"><b>ASSEMBLE24</b><strong>Girls Never Die</strong><span>OT24 · 2024.05.08 · 첫 24인 정규 앨범</span></article><article class="music-summary-card"><b>ASSEMBLE25</b><strong>깨어 (Are You Alive)</strong><span>2025.05.12 · ASSEMBLE25 타이틀</span></article><article class="music-summary-card"><b>LOVE&amp;POP pt.1</b><strong>Baby Flower</strong><span>2026.06.01 · 최신 대표 타이틀</span></article></div><div class="music-source">음반 구성 참고: <a href="https://naver.me/GaTLvrvw" target="_blank" rel="noopener">Naver 원문 연결 ↗</a> · <a href="https://www.namu.moe/w/tripleS" target="_blank" rel="noopener">tripleS 음악/음반 정리 ↗</a></div><div class="music-upgrade-grid" style="margin-top:22px"><article class="music-upgrade-card glass-card" data-song="Girls' Capitalism"><div class="music-cover">ↀ</div><h3>Girls' Capitalism</h3><p>LOVElution · MUHAN</p></article><article class="music-upgrade-card glass-card" data-song="Invincible"><div class="music-cover">⟡</div><h3>Invincible</h3><p>EVOLution · MUJUK</p></article><article class="music-upgrade-card glass-card" data-song="Rising"><div class="music-cover">24</div><h3>Rising</h3><p>ASSEMBLE · Title Track</p></article><article class="music-upgrade-card glass-card" data-song="Cherry Talk"><div class="music-cover">+</div><h3>Cherry Talk</h3><p>+(KR)ystal Eyes · AESTHETIC</p></article><article class="music-upgrade-card glass-card" data-song="Baby Flower"><div class="music-cover">♡</div><h3>Baby Flower</h3><p>LOVE&amp;POP pt.1 · 최신곡</p></article></div><div class="cheer-feature"><div><span class="eyebrow">CHEERING GUIDE · LATEST</span><h3>Baby Flower 응원 가이드</h3><p>공식 fanchant guide 영상으로 곡의 응원 포인트를 확인하세요. 한국어뿐 아니라 EN / JP / CN 안내가 포함된 공식 영상입니다.</p><a class="btn btn-primary" href="https://youtu.be/44RENRRMHNA" target="_blank" rel="noopener">공식 응원 가이드 보기 ↗</a></div><iframe src="https://www.youtube.com/embed/44RENRRMHNA" title="tripleS Baby Flower Fanchant Guide" loading="lazy" allowfullscreen></iframe></div></div></section>
 
 <div class="upgrade-modal" id="musicModal" aria-hidden="true"><div class="upgrade-modal-panel"><button class="modal-close" id="musicModalClose">×</button><span class="eyebrow">MUSIC DETAIL</span><h2 id="musicModalTitle">—</h2><p id="musicModalDesc" class="lead"></p><div id="musicModalGuide" class="glass-card" style="padding:16px;margin-top:18px"></div><div class="modal-links" id="musicModalLinks"></div></div></div>
+<div class="photo-modal" id="photoModal" aria-hidden="true"><div class="photo-modal-panel"><button class="modal-close" id="photoModalClose">×</button><img id="photoModalImg" alt="멤버 프로필 확대"><div class="photo-modal-caption" id="photoModalCaption"></div></div></div>
 </main><footer class="footer">WAV ARCHIVE · built for <b>tripleS</b> WAVs · 팬이 기록하고 함께 성장하는 공간</footer>
 <script>
 const SUPABASE_URL = 'YOUR_SUPABASE_URL';
@@ -506,7 +570,8 @@ const mm=document.getElementById('mobileMenu');document.getElementById('menu').o
 // Flip cards
 function calcAge(birth){const b=new Date(birth+'T00:00:00'),now=new Date();let a=now.getFullYear()-b.getFullYear();const before=(now.getMonth()<b.getMonth())||(now.getMonth()===b.getMonth()&&now.getDate()<b.getDate());if(before)a--;return a;}
 document.querySelectorAll('.facts em[data-birth]').forEach(e=>e.textContent=calcAge(e.dataset.birth)+'세');
-document.querySelectorAll('.member-card').forEach(card=>{card.addEventListener('click',e=>{if(e.target.closest('a,button'))return;card.classList.toggle('is-flipped')});card.querySelector('.flip-again').addEventListener('click',e=>{e.stopPropagation();card.classList.remove('is-flipped')})});
+document.querySelectorAll('.member-card').forEach(card=>{card.addEventListener('click',e=>{if(e.target.closest('a,button,.member-photo'))return;card.classList.toggle('is-flipped')});card.querySelector('.flip-again').addEventListener('click',e=>{e.stopPropagation();card.classList.remove('is-flipped')});const hint=card.querySelector('.flip-hint');hint?.addEventListener('click',e=>{e.stopPropagation();card.classList.toggle('is-flipped')});const photo=card.querySelector('.member-photo');photo?.addEventListener('click',e=>{e.stopPropagation();const pm=document.getElementById('photoModal'),pi=document.getElementById('photoModalImg'),pc=document.getElementById('photoModalCaption');if(!pm||photo.classList.contains('broken'))return;pi.src=photo.currentSrc||photo.src;pc.textContent=(card.dataset.member||'')+' · '+(card.dataset.name||'').split(' ')[0];pm.classList.add('open');pm.setAttribute('aria-hidden','false')})});
+const photoModal=document.getElementById('photoModal');function closePhoto(){photoModal?.classList.remove('open');photoModal?.setAttribute('aria-hidden','true')}document.getElementById('photoModalClose')?.addEventListener('click',closePhoto);photoModal?.addEventListener('click',e=>{if(e.target===photoModal)closePhoto()});
 // member search/filter
 let activeFilter='ALL';const cardsAll=[...document.querySelectorAll('.member-card')];const ms=document.getElementById('memberSearch');
 function filterMembers(){const q=ms.value.trim().toLowerCase();cardsAll.forEach(c=>{const text=(c.dataset.name+' '+c.dataset.member+' '+c.dataset.units).toLowerCase();const okQ=!q||text.includes(q);const okF=activeFilter==='ALL'||c.dataset.units.toLowerCase().includes(activeFilter.toLowerCase());c.style.display=okQ&&okF?'block':'none'})}
@@ -534,11 +599,12 @@ if(sb){sb.channel('wav-posts-live').on('postgres_changes',{event:'*',schema:'pub
  const cards=[...document.querySelectorAll('.member-card')], search=document.getElementById('memberSearch'); let active='ALL';
  function memberFilter(){const q=(search?.value||'').trim().toLowerCase();cards.forEach(c=>{const num=parseInt((c.dataset.member||'').replace(/\D/g,''),10);const text=((c.dataset.name||'')+' '+(c.dataset.member||'')+' '+(c.dataset.units||'')).toLowerCase();let ok=true;if(active==='RANGE1')ok=num>=1&&num<=12;else if(active==='RANGE2')ok=num>=13&&num<=24;else if(active!=='ALL')ok=(c.dataset.units||'').toLowerCase().includes(active.toLowerCase());c.style.display=ok&&(!q||text.includes(q))?'':'none';});}
  document.querySelectorAll('.member-upgrade-toolbar .filter').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.member-upgrade-toolbar .filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');active=b.dataset.filter;memberFilter();})); search?.addEventListener('input',memberFilter);
- const objektData=[['ATOM','tripleS','Seasonal · Premier / Welcome','Atom · Atom02','https://apollo.cafe/?artist=tripleS'],['ATOM','tripleS','1st / 2nd Edition','Atom02','https://apollo.cafe/?artist=tripleS'],['BINARY','tripleS','Seasonal · Edition','Binary02','https://apollo.cafe/?artist=tripleS'],['CREAM','tripleS','Seasonal · 1st / 2nd / 3rd Edition','Cream02','https://apollo.cafe/?artist=tripleS'],['DIVINE','tripleS','Season / Collection','Divine','https://apollo.cafe/?artist=tripleS'],['SEASONAL','tripleS','Current seasonal collection','Autumn26','https://apollo.cafe/events']];
+ const objektMembers=[['S01','윤서연','YSY'],['S02','정혜린','JHR'],['S03','이지우','LJW'],['S04','김채연','KCY'],['S05','김유연','KYY'],['S06','김수민','KSM'],['S07','김나경','KNK'],['S08','공유빈','GYB'],['S09','카에데','YKD'],['S10','서다현','SDH'],['S11','코토네','KKT'],['S12','곽연지','KYJ'],['S13','니엔','HNT'],['S14','박소현','PSH'],['S15','신위','ZXY'],['S16','마유','KMY'],['S17','린','LYNN'],['S18','주빈','JB'],['S19','정하연','JHY'],['S20','박시온','PSO'],['S21','김채원','KCW'],['S22','설린','SULLIN'],['S23','서아','SA'],['S24','지연','JY']];
+const objektData=[]; [['Atom01',10],['Binary01',16],['Cream01',20]].forEach(([season,max])=>objektMembers.filter((m,i)=>i<max).forEach(m=>objektData.push({season,member:m[0],name:m[1],code:m[2],collection:'101Z',className:'First Class',img:`https://triples.fandom.com/wiki/Objekt/${m[2]}_${season}_101Z.png`,source:'https://apollo.cafe/?artist=tripleS'})));
  const og=document.getElementById('objektGrid'), os=document.getElementById('objektSearch'), ose=document.getElementById('objektSeason');
- function drawObjekt(){if(!og)return;const q=(os?.value||'').toLowerCase(),s=ose?.value||'ALL';og.innerHTML=objektData.filter(x=>(s==='ALL'||x[0]===s)&&(!q||x.join(' ').toLowerCase().includes(q))).map(x=>`<article class="objekt-card glass-card"><span class="objekt-season">${x[0]}</span><span class="objekt-code">${x[3]}</span><span class="objekt-member">${x[2]}</span><a class="source-link" href="${x[4]}" target="_blank" rel="noopener">Apollo에서 보기 ↗</a></article>`).join('')||'<div class="wav-empty">검색 결과가 없습니다.</div>';}
+ function drawObjekt(){if(!og)return;const q=(os?.value||'').trim().toLowerCase(),s=ose?.value||'ALL';const rows=objektData.filter(x=>(s==='ALL'||x.season===s)&&(!q||`${x.season} ${x.member} ${x.name} ${x.code} ${x.collection}`.toLowerCase().includes(q)));const count=document.getElementById('objektCount');if(count)count.textContent=`총 ${rows.length}개 · 시즌 / 멤버 / S번호 검색 가능`;og.innerHTML=rows.map(x=>`<article class="objekt-card glass-card"><div class="objekt-image-wrap"><img src="${x.img}" alt="${x.name} ${x.season} ${x.collection}" loading="lazy" onerror="this.parentElement.classList.add('failed')"><span class="objekt-fallback">${x.member}</span></div><span class="objekt-season">${x.season}</span><span class="objekt-code">${x.collection}</span><div class="objekt-meta"><span class="objekt-member">${x.member} · ${x.name}</span><span class="objekt-class">${x.className}</span></div><a class="source-link" href="${x.source}" target="_blank" rel="noopener">Apollo에서 보기 ↗</a></article>`).join('')||'<div class="empty">검색 결과가 없습니다.</div>';}
  os?.addEventListener('input',drawObjekt);ose?.addEventListener('change',drawObjekt);drawObjekt();
- const songs={"Girls' Capitalism":['LOVElution · MUZIKAL','Girls\' Capitalism을 중심으로 한 Dimension 앨범.','https://www.youtube.com/results?search_query=tripleS+Girls+Capitalism+official+MV','https://open.spotify.com/search/Girls%20Capitalism%20tripleS','https://www.melon.com/search/total/index.htm?q=tripleS%20Girls%20Capitalism','후렴구에서 제목과 멤버 파트를 함께 따라 부르는 방식으로 응원해 주세요.'],Invincible:['EVOLution · Mujuk','EVOLution의 타이틀곡.','https://www.youtube.com/results?search_query=tripleS+Invincible+official+MV','https://open.spotify.com/search/Invincible%20tripleS','https://www.melon.com/search/total/index.htm?q=tripleS%20Invincible','공식 응원법 전문은 공식 배포본을 우선 확인해 주세요.'],Rising:['ASSEMBLE · Title Track','S1–S10 ASSEMBLE의 타이틀곡.','https://www.youtube.com/results?search_query=tripleS+Rising+official+MV','https://open.spotify.com/search/Rising%20tripleS','https://www.melon.com/search/total/index.htm?q=tripleS%20Rising','공식 응원법 전문은 공식 배포본을 우선 확인해 주세요.'],'Cherry Talk':['+(KR)ystal Eyes · AESTHETIC','+(KR)ystal Eyes의 대표곡.','https://www.youtube.com/results?search_query=tripleS+Cherry+Talk+official+MV','https://open.spotify.com/search/Cherry%20Talk%20tripleS','https://www.melon.com/search/total/index.htm?q=tripleS%20Cherry%20Talk','공식 응원법 전문은 공식 배포본을 우선 확인해 주세요.']};
+ const songs={"Girls' Capitalism":['LOVElution · MUZIKAL','Girls\' Capitalism을 중심으로 한 Dimension 앨범.','https://www.youtube.com/results?search_query=tripleS+Girls+Capitalism+official+MV','https://open.spotify.com/search/Girls%20Capitalism%20tripleS','https://www.melon.com/search/total/index.htm?q=tripleS%20Girls%20Capitalism','후렴구에서 제목과 멤버 파트를 함께 따라 부르는 방식으로 응원해 주세요.'],Invincible:['EVOLution · Mujuk','EVOLution의 타이틀곡.','https://www.youtube.com/results?search_query=tripleS+Invincible+official+MV','https://open.spotify.com/search/Invincible%20tripleS','https://www.melon.com/search/total/index.htm?q=tripleS%20Invincible','공식 응원법 전문은 공식 배포본을 우선 확인해 주세요.'],Rising:['ASSEMBLE · Title Track','S1–S10 ASSEMBLE의 타이틀곡.','https://www.youtube.com/results?search_query=tripleS+Rising+official+MV','https://open.spotify.com/search/Rising%20tripleS','https://www.melon.com/search/total/index.htm?q=tripleS%20Rising','공식 응원법 전문은 공식 배포본을 우선 확인해 주세요.'],'Cherry Talk':['+(KR)ystal Eyes · AESTHETIC','+(KR)ystal Eyes의 대표곡.','https://www.youtube.com/results?search_query=tripleS+Cherry+Talk+official+MV','https://open.spotify.com/search/Cherry%20Talk%20tripleS','https://www.melon.com/search/total/index.htm?q=tripleS%20Cherry%20Talk','공식 응원법 전문은 공식 배포본을 우선 확인해 주세요.'],'Baby Flower':['tripleS · LOVE&POP pt.1','2026년 6월 1일 공개된 LOVE&POP pt.1의 타이틀곡.','https://youtu.be/6q8UMVXhXsE','https://open.spotify.com/search/tripleS%20Baby%20Flower','https://www.melon.com/search/total/index.htm?q=tripleS%20Baby%20Flower','공식 응원 가이드: Baby Flower Fanchant Guide 영상에서 확인하세요.']};
  const modal=document.getElementById('musicModal'),mt=document.getElementById('musicModalTitle'),md=document.getElementById('musicModalDesc'),mg=document.getElementById('musicModalGuide'),ml=document.getElementById('musicModalLinks');
  document.querySelectorAll('.music-upgrade-card').forEach(c=>c.addEventListener('click',()=>{const d=songs[c.dataset.song];if(!d)return;mt.textContent=c.dataset.song;md.textContent=d[0]+' · '+d[1];mg.innerHTML='<strong>CHEERING GUIDE</strong><p style="line-height:1.7;margin-bottom:0">'+d[5]+'</p>';ml.innerHTML='<a target="_blank" rel="noopener" href="'+d[2]+'">MV / YouTube ↗</a><a target="_blank" rel="noopener" href="'+d[3]+'">Spotify ↗</a><a target="_blank" rel="noopener" href="'+d[4]+'">Melon ↗</a>';modal.classList.add('open');modal.setAttribute('aria-hidden','false');}));
  function close(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true')} document.getElementById('musicModalClose')?.addEventListener('click',close);modal?.addEventListener('click',e=>{if(e.target===modal)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
@@ -547,4 +613,110 @@ if(sb){sb.channel('wav-posts-live').on('postgres_changes',{event:'*',schema:'pub
  document.querySelectorAll('.music-upgrade-card,.timeline-card,.objekt-card').forEach(el=>el.classList.add('reveal'));
 })();
 </script>
+
+<script>
+(() => {
+  const gravityData = [
+  {title:"첫번째 Grand Gravity",date:"2022.09.21–09.25",kind:"GRAND",r:[["Acid Angel from Asia / +(KR)ystal Eyes","DIMENSION 구성 결과","최종 2개 DIMENSION"]],como:"결과가 1~3위 순위형이 아닌 팀 배정 투표"},
+  {title:"두 개의 큰 파도",date:"2023.04.21–05.01",kind:"GRAND",r:[["EVOLution","활동 순서 투표 1위","40.2% · 7,547"],["LOVElution","활동 순서 투표 2위","59.8% · 11,221"]],como:"활동 순서 최종: LOVElution 11,221 / EVOLution 7,547"},
+  {title:"Ballad Dimension",date:"2023.11",kind:"GRAND",r:[["Combination D","1위","52,892 (40.0%)"],["Combination A","2위","32,030 (24.2%)"],["Combination B","3위","27,405 (20.7%)"]],como:"총 132,216 표",},
+  {title:"ASSEMBLE24 Title Track",date:"2024.02.15–02.20",kind:"GRAND",r:[["Girls Never Die","1위 · FINAL","80,857 (82.9%)"],["Too Hot","2위 · FINAL","16,678 (17.1%)"]],como:"FINAL 총 97,535 COMO · 3위 없음"},
+  {title:"Visionary Vision · Leader Gravity",date:"2024.06.14–06.15",kind:"GRAND",r:[["정혜린","1위","88,102 (47.8%)"],["김나경","2위","50,901 (27.6%)"],["코토네","3위","9,001 (4.9%)"]],como:"총 184,423 투표",},
+  {title:"Visionary Vision · Final Members",date:"2024.06",kind:"GRAND",r:[["공유빈","최종 합류","S8"],["린","최종 합류","S17"],["—","3위 순위형 결과 아님","—"]],como:"멤버 선발은 단계별/유닛별 집계",},
+  {title:"Japan Dimension Gravity",date:"2024.07",kind:"GRAND",r:[["마유","1위","104,796 (63.2%)"],["코토네","2위","36,115 (21.8%)"],["김유연","3위","11,179 (6.7%)"]],como:"총 165,703 투표",},
+  {title:"ASSEMBLE25 Title Track",date:"2025.01.24–01.31",kind:"GRAND",r:[["Stranger Things","1위 · FINAL","111,784 (52.0%)"],["Diablo","2위 · FINAL","103,174 (48.0%)"]],como:"FINAL 총 214,958 투표 · 3위 없음"},
+  {title:"msnz Gravity · Member Selection",date:"2025.09.04–09.09",kind:"GRAND",r:[["moon / sun / neptune / zenith","유닛별 선발","4개 Gravity 동시 진행"],["리더: 설린 / 신위 / 윤서연 / 정하연","사전 추첨","m / s / n / z"]],como:"유닛별 개별 집계 · 단일 1~3위 표기가 아닌 구조"},
+  {title:"msnz Gravity · Song Selection",date:"2025.09.19–09.21",kind:"GRAND",r:[["Fly Up","sun · 1위","93%"],["Bubble Gum","sun · 3위 결정","2.2%"],["Q&A","zenith · 1위","유닛별 결과"]],como:"유닛별 COMO로 집계 · 단일 총합 순위 아님"},
+  {title:"2025 Best Objekt / Awards",date:"2025",kind:"EVENT",r:[["Best Objekt","1위","공식 결과표 기준"],["—","2위","세부 순위는 원문 결과표"],["—","3위","세부 순위는 원문 결과표"]],como:"Award Gravity는 부문별 집계",},
+  {title:"tripleS Character Name Gravity",date:"2026.02.07–02.08",kind:"EVENT",r:[["byteS","1위","22,244 (44.9%)"],["moco","2위","12,388 (25.0%)"],["Surfy","3위","6,193 (12.5%)"]],como:"총 49,565 투표",},
+  {title:"ASSEMBLE26 Love Side Pick Gravity",date:"2026.02.09–02.11",kind:"EVENT",r:[["MODHAUS pick","1위","40,924 (51.33%)"],["WAV pick","2위","38,801 (48.67%)"]],como:"총 79,725 투표 · 3위 없음"},
+];
+
+const gravityResultGrid = document.getElementById("gravityResultGrid");
+if (gravityResultGrid) { gravityResultGrid.innerHTML = gravityData.map(g => `<article class="gravity-result-card"><div class="gravity-result-top"><div><div class="gravity-result-date">${g.date}</div><h3>${g.title}</h3></div><span class="gravity-result-kind">${g.kind}</span></div><div class="rank-list">${g.r.map((r,i)=>`<div class="rank-item ${i===0?'first':''}"><span class="rank-no">${i+1}</span><span class="rank-name">${r[0]}</span><span class="rank-value">${r[2]}</span></div>`).join('')}</div><div class="como-total"><strong>COMO / 투표:</strong> ${g.como}</div><a class="source-link" href="https://namu.wiki/w/tripleS/Gravity#s-2.4" target="_blank" rel="noopener">나무위키 원문 ↗</a></article>`).join(''); }
+
+const timelineData = [
+    ["2021","Company","MODHAUS founded","모드하우스 설립","정병기·Joseph Baek이 서울에서 회사를 설립."],
+    ["2022","Company","Fan-participating girl group announced","팬 참여형 걸그룹 발표","팬이 라인업과 타이틀곡 결정에 참여하는 시스템을 예고."],
+    ["2022","Signal","thesis","thesis","공식 YouTube 첫 업로드."],
+    ["2022","Reveal","S1 윤서연","S1 Yoon SeoYeon","첫 번째 멤버 공개."],
+    ["2022","Reveal","S2 정혜린","S2 Jeong HyeRin","두 번째 멤버 공개."],
+    ["2022","Reveal","S3 이지우","S3 Lee JiWoo","세 번째 멤버 공개."],
+    ["2022","Reveal","S4 김채연","S4 Kim ChaeYeon","네 번째 멤버 공개."],
+    ["2022","Reveal","S5 김유연","S5 Kim YooYeon","다섯 번째 멤버 공개."],
+    ["2022","Company","COSMO launches · S6 김수민","COSMO 오픈 · S6 김수민","Objekt·COMO·Gravity를 사용하는 COSMO가 시작."],
+    ["2022","Reveal","S7 김나경","S7 Kim NaKyoung","일곱 번째 멤버 공개."],
+    ["2022","Reveal","S8 공유빈","S8 Gong YuBin","초기 8인 완성."],
+    ["2022","Gravity","First Grand Gravity","첫 Grand Gravity","S1–S8이 Acid Angel from Asia와 +(KR)ystal Eyes로 나뉨."],
+    ["2022","Dimension","Acid Angel from Asia — ACCESS","AAA 첫 DIMENSION","Generation으로 첫 DIMENSION 데뷔."],
+    ["2023","Reveal","S9 카에데 · S10 다현","S9 Kaede · S10 DaHyun","9·10번째 멤버 공개."],
+    ["2023","Music","ASSEMBLE — Rising","ASSEMBLE — Rising","S1–S10 데뷔와 Rising."],
+    ["2023","Reveal","S11 코토네 · S12 곽연지","S11 Kotone · S12 YeonJi","Binary01의 시작과 함께 공개."],
+    ["2023","Gravity","Fandom Name Gravity — WAV","팬덤명 Gravity","공식 팬덤명 WAV(웨이브) 결정."],
+    ["2023","Gravity","Two Big WAVes Gravity","투 빅 웨이브","LOVElution과 EVOLution으로 나눌 2개의 8인 Dimension 결정."],
+    ["2023","Reveal","S13 니엔 · S14 박소현","S13 Nien · S14 SoHyun","13·14번째 멤버 공개."],
+    ["2023","Reveal","S15 신위 · S16 마유","S15 Xinyu · S16 Mayu","LOVElution/EVOLution의 8인 구성을 완성."],
+    ["2023","Dimension","LOVElution — ↀ MUHAN","LOVElution","Girls' Capitalism."],
+    ["2023","Dimension","EVOLution — ⟡ MUJUK","EVOLution","Invincible."],
+    ["2023","Reveal","S17 린 · S18 주빈","S17 Lynn · S18 JooBin","NXT 시작."],
+    ["2023","Dimension","S19 정하연 · NXT Just Do It","NXT","NXT 첫 활동."],
+    ["2023","Reveal","S20 박시온","S20 ShiOn","첫 20명 완성."],
+    ["2024","Dimension","Aria — Structure of Sadness","Aria","첫 발라드 DIMENSION."],
+    ["2024","Concert","Authentic in Seoul","서울 공연","LOVElution·EVOLution 및 20인 무대, ASSEMBLE24 발표."],
+    ["2024","Reveal","S21 김채원 · S22 설린 · S23 서아 · S24 지연","OT24 complete","마지막 4명 공개로 24명 완성."],
+    ["2024","Music","ASSEMBLE24 — Girls Never Die","ASSEMBLE24","첫 OT24 정규 앨범."],
+    ["2024","Dimension","Glow — Inner Dance","Glow","S21–S24 첫 활동."],
+    ["2024","Gravity","Japan Dimension Grand Gravity","일본 DIMENSION","Mayu·ShiOn 선발 + WAV 투표로 ∞! 구성."],
+    ["2024","Dimension","Visionary Vision — Performante","Visionary Vision","12인 댄스 DIMENSION."],
+    ["2024","Japan","∞! Japanese debut — Untitled","∞!","일본 데뷔."],
+    ["2025","Gravity","ASSEMBLE25 title Gravity","ASSEMBLE25 타이틀","결과: 깨어 (Are You Alive), 583,228 COMO."],
+    ["2025","Music","ASSEMBLE25 — 깨어","ASSEMBLE25","연차 OT24 정규 앨범."],
+    ["2025","Gravity","msnz Grand Gravity","msnz","Moon·Sun·Neptune·Zenith 4개 우주 DIMENSION."],
+    ["2025","Dimension","msnz — Beyond Beauty","msnz","네 유닛이 함께 공개."],
+    ["2026","Music","LOVE&POP pt.1 — Baby Flower","LOVE&POP","ASSEMBLE26 시작."],
+    ["2026","Gravity","Badge War 4 theme Gravity","배지전쟁4 주제곡","결과: World Wild Women."],
+    ["2026","Concert","ANDLESS world-tour dates","ANDLESS","서울·마카오·도쿄 및 북미 등 월드투어 일정 공개."],
+    ["2026","Gravity","Winter Cover Unit — Team Blue C","윈터 커버 유닛","최종 결과: Team Blue C — sun & neptune."],
+    ["2026","Gravity","Visual Director Gravity","비주얼 디렉터","최종 결과: SoHyun — vintage wedding."],
+  ];
+
+  const timelineGrid = document.getElementById("timelineGrid");
+  const yearButtons = [...document.querySelectorAll("#timelineYears button")];
+  const typeButtons = [...document.querySelectorAll("#timelineTypes button")];
+  let yearFilter = "ALL", typeFilter = "ALL";
+
+  function renderTimeline() {
+    if (!timelineGrid) return;
+    const list = timelineData.filter(x =>
+      (yearFilter === "ALL" || x[0] === yearFilter) &&
+      (typeFilter === "ALL" || x[1] === typeFilter)
+    );
+    timelineGrid.innerHTML = list.map(x => `
+      <article class="timeline-event">
+        <span class="timeline-dot"></span>
+        <div class="timeline-card-new">
+          <div class="timeline-meta"><span>${x[0]}</span><span class="timeline-kind">${x[1]}</span></div>
+          <h3>${x[2]}</h3>
+          <p>${x[3]} · ${x[4]}</p>
+          <a class="timeline-source" href="https://triplesfans.com/timeline" target="_blank" rel="noopener">Timeline 원문 ↗</a>
+        </div>
+      </article>`).join("");
+  }
+
+  yearButtons.forEach(btn => btn.addEventListener("click", () => {
+    yearButtons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    yearFilter = btn.dataset.year;
+    renderTimeline();
+  }));
+  typeButtons.forEach(btn => btn.addEventListener("click", () => {
+    typeButtons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    typeFilter = btn.dataset.type;
+    renderTimeline();
+  }));
+  renderTimeline();
+})();
+</script>
+
 </body></html>
