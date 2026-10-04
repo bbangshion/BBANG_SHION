@@ -1483,6 +1483,18 @@ button[data-target="archive"]{display:none!important;}
   .hero-copy .wa-copy-line{white-space:normal;word-break:keep-all;overflow-wrap:normal;}
 }
 </style>
+
+<style id="member-back-unit-description-final-fix">
+/* Final fix: keep every member's unit description fully readable. */
+#memberGrid .member-back .back-desc{
+  max-height:none!important;
+  height:auto!important;
+  overflow:visible!important;
+  text-overflow:clip!important;
+  -webkit-line-clamp:unset!important;
+  display:block!important;
+}
+</style>
 </head>
 <body>
 <div id="waDimensionDB" class="wa-dimdb" aria-hidden="true">
